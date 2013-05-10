@@ -1,0 +1,57 @@
+
+function parse_git_dirty() {
+  [[ -n $(echo $1 | grep 'nothing to commit (working directory clean)' 2> /dev/null) ]] && echo "*"
+}
+
+function parse_git_stash (){
+  stash=`git stash list 2> /dev/null | wc -l | tr -d ' '`
+  
+  [[ $stash != 0 ]] && echo "^$stash"
+}
+
+function parse_git_ahead() {
+  regex="Your branch is ahead of [a-z'/]+ by ([0-9]+)"
+  if [[ $1 =~ $regex ]]
+  then
+    n=${#BASH_REMATCH[1]}
+    echo ">$n"
+  fi
+
+}
+
+function parse_git_behind() {
+  regex="Your branch is behind [a-z'/]+ by ([0-9]+)"
+  if [[ $1 =~ $regex ]]
+  then
+    n=${#BASH_REMATCH[1]}
+    echo "<$n"
+  fi
+}
+
+function parse_git_diverge() {
+  [[ -n $(echo $1 | grep 'have diverged' 2> /dev/null) ]] && echo "↕"
+}
+
+function current_git_branch() {
+  git rev-parse --abbrev-ref HEAD 2> /dev/null
+}
+
+function current_git_branch_with_markers {
+  git_status=`git status 2> /dev/null`
+  stash=`parse_git_stash`
+  ahead=`parse_git_ahead "$git_status"`
+  behind=`parse_git_behind "$git_status"`
+  diverge=`parse_git_diverge "$git_status"`
+  dirty=`parse_git_dirty "$git_status"`
+  echo `current_git_branch` | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$stash\]/"
+}
+
+function set_prompt {
+  local  GREEN='\[\e[0;32m\]'
+  local    RED='\[\e[0;31m\]'
+  local NORMAL='\[\e[0m\]'
+
+  PS1="\h:\W \u\[\033[0;32m\]\$(current_git_branch_with_markers) \[\033[0m\]\$ "
+}
+
+set_prompt
