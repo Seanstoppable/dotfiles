@@ -26,7 +26,7 @@ function parse_git_ahead() {
   regex="Your branch is ahead of [a-z'/]+ by ([0-9]+)"
   if [[ $1 =~ $regex ]]
   then
-    n=${#BASH_REMATCH[1]}
+    n=${BASH_REMATCH[1]}
     echo ">$n"
   fi
 
@@ -36,13 +36,20 @@ function parse_git_behind() {
   regex="Your branch is behind [a-z'/]+ by ([0-9]+)"
   if [[ $1 =~ $regex ]]
   then
-    n=${#BASH_REMATCH[1]}
+    n=${BASH_REMATCH[1]}
     echo "<$n"
   fi
 }
 
 function parse_git_diverge() {
-  [[ -n $(echo $1 | grep 'have diverged' 2> /dev/null) ]] && echo "↕"
+  regex="([0-9]+) and ([0-9]+) different commits"
+  if [[ $1 =~ $regex ]]
+  then
+    your=${BASH_REMATCH[1]}
+    source=${BASH_REMATCH[2]}
+    symbol="↕"
+    echo "$your$symbol$source"
+  fi
 }
 
 function current_git_branch() {
