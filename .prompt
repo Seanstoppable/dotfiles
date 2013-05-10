@@ -1,3 +1,10 @@
+#functions for showing git repo status on the command line
+
+# * uncommitted changes
+# ^ stashed changes
+# > ahead of origin
+# < behind origin
+# ↕ diverged from origin
 
 function parse_git_dirty() {
   [[ -n $(echo $1 | grep 'nothing to commit (working directory clean)' 2> /dev/null) ]] && echo "*"
