@@ -7,7 +7,13 @@
 # ↕ diverged from origin
 
 function parse_git_dirty() {
-  [[ -n $(echo $1 | grep 'nothing to commit (working directory clean)' 2> /dev/null) ]] && echo "*"
+  regex="working directory clean"
+  if [[ $1 =~ $regex ]]
+  then
+    echo ""
+  else
+    echo "*"
+  fi
 }
 
 function parse_git_stash (){
@@ -44,13 +50,17 @@ function current_git_branch() {
 }
 
 function current_git_branch_with_markers {
-  git_status=`git status 2> /dev/null`
-  stash=`parse_git_stash`
-  ahead=`parse_git_ahead "$git_status"`
-  behind=`parse_git_behind "$git_status"`
-  diverge=`parse_git_diverge "$git_status"`
-  dirty=`parse_git_dirty "$git_status"`
-  echo `current_git_branch` | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$stash\]/"
+  current=`current_git_branch`
+  if [[ $current ]] 
+  then
+    git_status=`git status 2> /dev/null`
+    stash=`parse_git_stash`
+    ahead=`parse_git_ahead "$git_status"`
+    behind=`parse_git_behind "$git_status"`
+    diverge=`parse_git_diverge "$git_status"`
+    dirty=`parse_git_dirty "$git_status"`
+    echo $current | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$stash\]/"
+  fi
 }
 
 function set_prompt {
