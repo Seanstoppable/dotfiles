@@ -1,0 +1,6 @@
+#common aliases
+alias grep='grep -r -i --exclude *.svn-base'
+alias ls='ls -G'
+alias vi='vim'
+alias screen='screen -DUR'
+alias restart-vpn='sudo launchctl stop com.apple.racoon && sudo launchctl start com.apple.racoon'
