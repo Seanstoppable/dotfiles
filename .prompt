@@ -5,6 +5,7 @@
 # > ahead of origin
 # < behind origin
 # ↕ diverged from origin
+# R rebasing
 
 function parse_git_dirty() {
   regex="working directory clean"
