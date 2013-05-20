@@ -52,7 +52,7 @@ function parse_git_behind() {
 }
 
 function parse_git_diverge() {
-  regex="([0-9]+) and ([0-9]+) different commits"
+  regex="([0-9]+) and ([0-9]+) different commit"
   if [[ $1 =~ $regex ]]
   then
     your=${BASH_REMATCH[1]}
