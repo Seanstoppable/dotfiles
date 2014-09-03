@@ -49,3 +49,4 @@ match ExtraWhitespace /\s\+$/
 " auto remove whitespace from certain files
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
+highlight SignColumn ctermbg=black guibg=black
