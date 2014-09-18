@@ -1,5 +1,8 @@
+[init]
+  templatedir = ~/.dotfiles/.git_template
+
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.dotfiles/.gitignore
 
 [color]
     diff = auto
