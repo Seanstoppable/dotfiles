@@ -1,0 +1,6 @@
+*.swp
+*.tmp
+.idea
+.DS_Store
+target
+tmp/*
