@@ -10,7 +10,7 @@ endtry
 syntax on " Turn on syntax highligthing
 set showmatch  "Show matching bracets when text indicator is over them
 
-colorscheme delek
+colorscheme ansi_blows
 
 " Switch on filetype detection and loads 
 " indent file (indent.vim) for specific file types
