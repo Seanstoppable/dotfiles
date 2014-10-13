@@ -5,3 +5,5 @@
 target
 tmp/*
 .vim/.netrwhist
+.idea
+.idea_modules
