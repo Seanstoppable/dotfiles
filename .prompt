@@ -7,6 +7,10 @@
 # ↕ diverged from origin
 # R rebasing
 
+function parse_project_name() {
+  echo `git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
+}
+
 function parse_git_dirty() {
   regex="working directory clean"
   if [[ $1 =~ $regex ]]
@@ -79,6 +83,7 @@ function current_git_branch_with_markers {
   current=`current_git_branch`
   if [[ $current ]] 
   then
+    project=`parse_project_name`
     git_status=`git status 2> /dev/null`
     stash=`parse_git_stash`
     ahead=`parse_git_ahead "$git_status"`
@@ -87,7 +92,7 @@ function current_git_branch_with_markers {
     dirty=`parse_git_dirty "$git_status"`
     rebasing=`parse_git_rebasing "$git_status"`
     cherry_picking=`parse_cherry_picking "$git_status"`
-    echo $current | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
+    echo $project/$current | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
   fi
 }
 
