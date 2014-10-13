@@ -22,6 +22,13 @@ set si " Smart indent
 " set delete as backspace
 set backspace=indent,eol,start
 
+""""""""""""""""""""""
+" Status line
+""""""""""""""""""""""
+" always show filename in status bar
+set laststatus=2
+
+
 """"""""""""""""""""""""""""""""""
 " Some other confy settings
 """"""""""""""""""""""""""""""""""
