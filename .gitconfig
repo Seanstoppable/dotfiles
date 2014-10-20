@@ -10,8 +10,9 @@
     status = auto
 
 [alias]
-  submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
   draft = "!f() { git push origin HEAD:refs/drafts/$1; }; f"
-  nuke = "!git clean -fdx"
-  hist = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
   drop1 = "stash drop stash@{0}"
+  ls = "log --oneline"
+  hist = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  nuke = "!git clean -fdx"
+  submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
