@@ -1,9 +1,9 @@
 
 #bundle install if Gemfile exists
-if [ -f build.sbt ] ; then
-  sbt test:compile
-fi
+#if [ -f build.sbt ] ; then
+#  psbt test:compile
+#fi
 
-if [ -f project/Build.scala ] ; then
-  sbt test:compile
-fi
+#if [ -f project/Build.scala ] ; then
+#  psbt test:compile
+#fi

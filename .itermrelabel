@@ -1,0 +1,10 @@
+function change_iterm_tab_name() {
+  echo -n -e "\033];$1\007"
+}
+
+function set_tab_name {
+  if [[ $(pwd) =~ ^\/web\/([a-z0-9_\-]+) ]]; then
+    repo=${BASH_REMATCH[1]}
+    change_iterm_tab_name $repo
+  fi
+}
