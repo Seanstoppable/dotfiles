@@ -12,7 +12,7 @@ set showmatch  "Show matching bracets when text indicator is over them
 
 colorscheme ansi_blows
 
-" Switch on filetype detection and loads 
+" Switch on filetype detection and loads
 " indent file (indent.vim) for specific file types
 filetype indent on
 filetype on
@@ -57,5 +57,7 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
 autocmd FileType gitcommit setlocal spell
+autocmd FileType scala set commentstring=//\ %s
+autocmd FileType ruby set commentstring=#\ %s
 
 highlight SignColumn ctermbg=black guibg=black
