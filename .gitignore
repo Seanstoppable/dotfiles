@@ -1,9 +1,8 @@
 *.swp
 *.tmp
-.idea
 .DS_Store
-target
-tmp/*
-.vim/.netrwhist
 .idea
 .idea_modules
+.vim/.netrwhist
+target
+tmp/*
