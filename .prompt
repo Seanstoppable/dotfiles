@@ -47,7 +47,7 @@ function parse_cherry_picking() {
 }
 
 function parse_git_ahead() {
-  regex="Your branch is ahead of [a-z'/]+ by ([0-9]+)"
+  regex="Your branch is ahead of [a-z'/_-]+ by ([0-9]+)"
   if [[ $1 =~ $regex ]]
   then
     n=${BASH_REMATCH[1]}
@@ -56,7 +56,7 @@ function parse_git_ahead() {
 }
 
 function parse_git_behind() {
-  regex="Your branch is behind [a-z'/]+ by ([0-9]+)"
+  regex="Your branch is behind [a-z'/_-]+ by ([0-9]+)"
   if [[ $1 =~ $regex ]]
   then
     n=${BASH_REMATCH[1]}
