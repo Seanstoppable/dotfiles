@@ -6,4 +6,13 @@ alias screen='screen -DUR'
 alias restart-vpn='sudo launchctl stop com.apple.racoon && sudo launchctl start com.apple.racoon'
 
 #docker
-dockerclean='docker rm $(docker ps -a -q)'
+alias dockerclean='docker rm $(docker ps -a -q)'
+
+#git
+alias gitree='git log --graph --pretty=oneline --abbrev-commit'
+alias gitreset='git reset --hard origin/`git branch --contains | sed "s/\* //g"`'
+
+#java
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
