@@ -1,0 +1,2 @@
+export HISTFILESIZE=25000
+export HISTCONTROL=ignoredups:erasedups 
