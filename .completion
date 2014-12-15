@@ -2,6 +2,10 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
   source `brew --prefix`/etc/bash_completion.d/git-completion.bash
 fi
 
+if [ -f `brew --prefix`/etc/bash_completion.d/ag-completion.bash ]; then
+  source `brew --prefix`/etc/bash_completion.d/ag-completion.bash
+fi
+
 if [ -f /usr/local/bin/aws_completer ]; then
   complete -C "/usr/local/bin/aws_completer" aws
 fi
