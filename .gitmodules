@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-mkdir"]
 	path = .vim/bundle/vim-mkdir
 	url = https://github.com/pbrisbin/vim-mkdir
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = git@github.com:mileszs/ack.vim.git

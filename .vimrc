@@ -67,3 +67,9 @@ autocmd FileType scala set commentstring=//\ %s
 autocmd FileType ruby set commentstring=#\ %s
 
 highlight SignColumn ctermbg=black guibg=black
+
+"use https://github.com/ggreer/the_silver_searcher instead of ack in the ack plugin, if exists
+try
+  let g:ackprg = 'ag --vimgrep'
+catch
+endtry
