@@ -55,6 +55,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" big history
+set history=1000
+
 " highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
