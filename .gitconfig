@@ -10,11 +10,11 @@
     status = auto
 
 [alias]
+  desc = "describe"
   draft = "!f() { git push origin HEAD:refs/drafts/$1; }; f"
   drop1 = "stash drop stash@{0}"
-  ls = "log --oneline"
+  editlast = "!vim `git diff-tree --no-commit-id --name-only -r HEAD`"
   hist = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  ls = "log --oneline"
   nuke = "!git clean -fdx"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
-  editlast = "!vim `git diff-tree --no-commit-id --name-only -r HEAD`"
-  desc = "describe"
