@@ -65,6 +65,10 @@ match ExtraWhitespace /\s\+$/
 " auto remove whitespace from certain files
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
+" autosort scala imports
+autocmd Filetype scala SortScalaImports
+autocmd BufWritePre *.scala :SortScalaImports
+
 autocmd FileType gitcommit setlocal spell
 autocmd FileType scala set commentstring=//\ %s
 autocmd FileType ruby set commentstring=#\ %s
