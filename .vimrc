@@ -69,11 +69,17 @@ autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 autocmd Filetype scala SortScalaImports
 autocmd BufWritePre *.scala :SortScalaImports
 
+" spellchecking for git commits
 autocmd FileType gitcommit setlocal spell
+
+" specify comment types for some filetypes
 autocmd FileType scala set commentstring=//\ %s
 autocmd FileType ruby set commentstring=#\ %s
 
 highlight SignColumn ctermbg=black guibg=black
+
+" Markdown language highlighting
+let g:markdown_fenced_languages = ['java', 'scala']
 
 "use https://github.com/ggreer/the_silver_searcher instead of ack in the ack plugin, if exists
 try
