@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = git@github.com:mileszs/ack.vim.git
+[submodule ".vim/bundle/vim-apidoc"]
+	path = .vim/bundle/vim-apidoc
+	url = https://github.com/conorclifford/vim-apidoc
