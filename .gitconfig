@@ -10,6 +10,8 @@
     status = auto
 
 [alias]
+  ca = "commit --amend -v"
+  ci = "commit -v"
   desc = "describe"
   draft = "!f() { git push origin HEAD:refs/drafts/$1; }; f"
   drop1 = "stash drop stash@{0}"
