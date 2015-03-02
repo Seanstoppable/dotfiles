@@ -86,3 +86,5 @@ try
   let g:ackprg = 'ag --vimgrep'
 catch
 endtry
+
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff},%{fugitive#statusline()}]%h%m%r%y%=%c,%l/%L\ %P
