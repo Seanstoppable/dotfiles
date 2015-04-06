@@ -49,6 +49,10 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+"clear extra stuff in left columns
+map <Leader>cl :GitGutterDisable<CR>:set nonumber<CR>
+map <Leader>sl :GitGutterEnable<CR>:set number<CR>
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
