@@ -9,4 +9,8 @@
 -- Autocomplete keywords (like SELECT) in upper-case, even if you started
 -- typing them in lower case.
 \set COMP_KEYWORD_CASE upper
-
+--Pretty prompt
+\set PROMPT1 '%[%033[31m%]%M %n@%/%R%[%033[0m%]%# '
+-- Use best available output format
+-- as in some cases we would just want to use expanded
+\x auto
