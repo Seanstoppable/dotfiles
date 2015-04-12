@@ -6,3 +6,6 @@ ln -sf ~/.dotfiles/.irbrc ~/.irbrc
 ln -sf ~/.dotfiles/.psqlrc ~/.psqlrc
 ln -sf ~/.dotfiles/.vim ~/.vim
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
+
+git submodule init
+git submodule update
