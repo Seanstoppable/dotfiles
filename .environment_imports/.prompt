@@ -33,7 +33,6 @@ function parse_git_rebasing() {
 
 function parse_git_stash() {
   stash=`git stash list 2> /dev/null | wc -l | tr -d ' '`
-  
   [[ $stash != 0 ]] && echo "^$stash"
 }
 
@@ -81,7 +80,7 @@ function current_git_branch() {
 
 function current_git_branch_with_markers {
   current=`current_git_branch`
-  if [[ $current ]] 
+  if [[ $current ]]
   then
     project=`parse_project_name`
     git_status=`git status 2> /dev/null`
