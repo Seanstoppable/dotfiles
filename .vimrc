@@ -45,7 +45,7 @@ set softtabstop=2
 set number
 
 "paste toggle of F2
-nnoremap <F2> :set invpaste paste?<CR>
+nnoremap <Leader>p :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
