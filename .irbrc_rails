@@ -1,0 +1,7 @@
+#!/usr/bin/ruby
+IRB.conf[:IRB_RC] = Proc.new do
+  major_version = Rails.version.first.to_i
+  if (major_version == 2)
+    ActiveRecord::Base.connection.instance_variable_set :@logger, Logger.new(STDOUT)
+  end
+end
