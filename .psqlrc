@@ -14,3 +14,5 @@
 -- Use best available output format
 -- as in some cases we would just want to use expanded
 \x auto
+--automatically add timing
+\timing
