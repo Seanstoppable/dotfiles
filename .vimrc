@@ -91,4 +91,11 @@ try
 catch
 endtry
 
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff},%{fugitive#statusline()}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=
+set statusline+=*\[%n]\                           "buffernr
+set statusline+=%F%m%r%h%w\                       "File path
+set statusline+=%y\                               "FileType
+set statusline+=%{fugitive#statusline()}\         "Git info
+set statusline+=[%{strlen(&fenc)?&fenc:&enc}]\    "Encoding
+set statusline+=row:%l/%L\ (%03p%%)\              "Row
+set statusline+=column:%v\                        "Column
