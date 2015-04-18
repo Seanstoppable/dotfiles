@@ -98,7 +98,11 @@ highlight SignColumn ctermbg=black guibg=black
 set laststatus=2
 set statusline=
 set statusline+=*\[%n]\                           "buffernr
-set statusline+=%F%m%r%h%w\                       "File path
+set statusline+=%F\                               "File path
+set statusline+=%m                                "modified flag
+set statusline+=%r                                "read only flag
+set statusline+=%h                                "help buffer flag
+set statusline+=%w                                "preview window flag
 set statusline+=%y\                               "FileType
 try
   set statusline+=%{fugitive#statusline()}\         "Git info if fugitive is installed
