@@ -112,3 +112,7 @@ set statusline+=%*
 set statusline+=%=      "left/right separator
 set statusline+=row:%l/%L\ (%03p%%)\              "Row
 set statusline+=column:%v\                        "Column
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
