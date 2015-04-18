@@ -55,7 +55,7 @@ function parse_git_ahead() {
 }
 
 function parse_git_behind() {
-  regex="Your branch is behind [a-zA-Z'/_-0-9]+ by ([0-9]+)"
+  regex="Your branch is behind [a-zA-Z'/_-i0-9]+ by ([0-9]+)"
   if [[ $1 =~ $regex ]]
   then
     n=${BASH_REMATCH[1]}
