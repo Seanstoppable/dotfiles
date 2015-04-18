@@ -22,3 +22,4 @@
   ls = "log --oneline"
   nuke = "!git clean -fdx"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
+  undo = "reset --soft HEAD^"
