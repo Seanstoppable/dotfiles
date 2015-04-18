@@ -105,5 +105,10 @@ try
 catch
 endtry
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]\    "Encoding
+"display a warning if &paste is set
+set statusline+=%#error#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+set statusline+=%=      "left/right separator
 set statusline+=row:%l/%L\ (%03p%%)\              "Row
 set statusline+=column:%v\                        "Column
