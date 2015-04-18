@@ -8,6 +8,15 @@ if [ -d ~/.dotfiles/.environment_imports ] ; then
   done
 fi
 
+PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
+PATH="$HOME/.dotfiles/bin:$PATH"
+
+# put ~/bin first on PATH
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
 ### Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.sh ]; then
     source ~/.bashhub/bashhub.sh

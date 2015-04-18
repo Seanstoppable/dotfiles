@@ -16,6 +16,10 @@ filetype indent on
 filetype on
 set autoindent " Copy indent from the row above
 set si " Smart indent
+" Use 2 space instead of tab during format
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 " set delete as backspace
 set backspace=indent,eol,start
@@ -27,10 +31,8 @@ set backspace=indent,eol,start
 set hls " highlight search
 set lbr " linebreak
 
-" Use 2 space instead of tab during format
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+set wildmode=list:longest "make cmdline tab completion similar to bash
+set wildmenu              "enable ctrl-n and ctrl-p to scroll thru matches
 
 " Show line numbers
 set number
