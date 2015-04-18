@@ -10,8 +10,6 @@ endtry
 syntax on " Turn on syntax highligthing
 set showmatch  "Show matching bracets when text indicator is over them
 
-colorscheme ansi_blows
-
 " Switch on filetype detection and loads
 " indent file (indent.vim) for specific file types
 filetype indent on
@@ -21,13 +19,6 @@ set si " Smart indent
 
 " set delete as backspace
 set backspace=indent,eol,start
-
-""""""""""""""""""""""
-" Status line
-""""""""""""""""""""""
-" always show filename in status bar
-set laststatus=2
-
 
 """"""""""""""""""""""""""""""""""
 " Some other confy settings
@@ -79,8 +70,7 @@ autocmd FileType gitcommit setlocal spell
 " specify comment types for some filetypes
 autocmd FileType scala set commentstring=//\ %s
 autocmd FileType ruby set commentstring=#\ %s
-
-highlight SignColumn ctermbg=black guibg=black
+autocmd FileType vim set commentstring=\"\ %s
 
 " Markdown language highlighting
 let g:markdown_fenced_languages = ['java', 'scala']
@@ -91,11 +81,27 @@ try
 catch
 endtry
 
+""""""""""""""""""""""""""""""""""
+" Styling
+""""""""""""""""""""""""""""""""""
+try
+  colorscheme ansi_blows
+catch
+endtry
+highlight SignColumn ctermbg=black guibg=black
+
+""""""""""""""""""""""
+" Status line
+""""""""""""""""""""""
+set laststatus=2
 set statusline=
 set statusline+=*\[%n]\                           "buffernr
 set statusline+=%F%m%r%h%w\                       "File path
 set statusline+=%y\                               "FileType
-set statusline+=%{fugitive#statusline()}\         "Git info
+try
+  set statusline+=%{fugitive#statusline()}\         "Git info if fugitive is installed
+catch
+endtry
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]\    "Encoding
 set statusline+=row:%l/%L\ (%03p%%)\              "Row
 set statusline+=column:%v\                        "Column
