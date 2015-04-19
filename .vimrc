@@ -1,8 +1,15 @@
-"Use Pathogen if exists
-try
-  execute pathogen#infect()
-catch
-endtry
+call plug#begin('~/.vim/plugged')
+
+Plug 'mileszs/ack.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'conorclifford/vim-apidoc'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'pbrisbin/vim-mkdir'
+Plug 'derekwyatt/vim-scala'
+
+call plug#end()
 
 """"""""""""""""""""""""""""""""""
 " Syntax and indent

@@ -4,5 +4,6 @@
 .idea
 .idea_modules
 .vim/.netrwhist
+.vim/plugged
 target
 tmp/*
