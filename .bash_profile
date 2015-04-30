@@ -12,6 +12,8 @@ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 PATH="$HOME/.dotfiles/bin:$PATH"
 
+export EDITOR=vim
+
 # put ~/bin first on PATH
 if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
