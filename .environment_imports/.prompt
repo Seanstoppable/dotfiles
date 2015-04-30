@@ -11,6 +11,17 @@ function parse_project_name() {
   echo `git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
 }
 
+function parse_postgres_status() {
+  postgres_status=`pg_ctl status 2> /dev/null`
+  regex="server is running"
+  if [[ $postgres_status =~ $regex ]]
+  then
+    echo "P"
+  else
+    echo ""
+  fi
+}
+
 function parse_git_dirty() {
   regex="working directory clean"
   if [[ $1 =~ $regex ]]
@@ -78,6 +89,11 @@ function current_git_branch() {
   git rev-parse --abbrev-ref HEAD 2> /dev/null
 }
 
+function service_markers {
+  postgres=`parse_postgres_status`
+  echo $postgres
+}
+
 function current_git_branch_with_markers {
   current=`current_git_branch`
   if [[ $current ]]
@@ -92,15 +108,17 @@ function current_git_branch_with_markers {
     rebasing=`parse_git_rebasing "$git_status"`
     cherry_picking=`parse_cherry_picking "$git_status"`
     echo $project/$current | sed -e "s/\(.*\)/ \[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
+
   fi
 }
 
 function set_prompt {
   local  GREEN='\[\e[0;32m\]'
   local    RED='\[\e[0;31m\]'
+  local   CYAN='\[\e[1;36m\]'
   local NORMAL='\[\e[0m\]'
 
-  PS1="\h:\W \u\[\033[0;32m\]\$(current_git_branch_with_markers) \[\033[0m\]\$ "
+  PS1="\h:\W \u $CYAN[\$(service_markers)]$GREEN\$(current_git_branch_with_markers) $NORMAL"
 }
 
 set_prompt
