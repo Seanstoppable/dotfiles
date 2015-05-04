@@ -10,6 +10,7 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
@@ -128,6 +129,10 @@ set statusline+=%*
 set statusline+=%=      "left/right separator
 set statusline+=row:%l/%L\ (%03p%%)\              "Row
 set statusline+=column:%v\                        "Column
+
+if &shell =~# 'fish$'
+  set shell=bash
+endif
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
