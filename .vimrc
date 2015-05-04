@@ -8,6 +8,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'derekwyatt/vim-scala'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -52,6 +54,9 @@ set showmode
 "clear extra stuff in left columns
 map <Leader>cl :GitGutterDisable<CR>:set nonumber<CR>
 map <Leader>sl :GitGutterEnable<CR>:set number<CR>
+
+let NERDTreeShowHidden=1
+map <Leader>n :NERDTreeToggle<CR>
 
 " No annoying sound on errors
 set noerrorbells
