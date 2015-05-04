@@ -2,7 +2,7 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 
 set bell-style visible
 
-if [ -d ~/.dotfiles/.environment_imports ] ; then
+if [ -d ~/.dotfiles/environment_imports ] ; then
   for file in `ls -A ~/.dotfiles/environment_imports` ; do
     source ~/.dotfiles/environment_imports/$file
   done
