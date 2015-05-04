@@ -1,2 +1,4 @@
 ARCHFLAGS="-arch x86_64"
-eval "$(rbenv init -)"
+if command -v rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
