@@ -1,3 +1,5 @@
+-- Turn on message output, which can mess up some scripts
+\set QUIET 1
 -- By default, NULL displays as an empty space. Is it actually an empty
 -- string, or is it null? This makes that distinction visible.
 \pset null '[NULL]'
@@ -16,3 +18,5 @@
 \x auto
 --automatically add timing
 \timing
+
+\unset QUIET
