@@ -11,6 +11,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dag/vim-fish'
+Plug 'dahu/vim-lotr'
 
 call plug#end()
 
