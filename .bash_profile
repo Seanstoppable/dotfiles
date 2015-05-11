@@ -19,6 +19,16 @@ if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
 fi
 
+case $TERM in
+  xterm*|rxvt|Eterm|eterm)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+    ;;
+  screen)
+    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+    ;;
+esac
+
+
 ### Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.sh ]; then
     source ~/.bashhub/bashhub.sh

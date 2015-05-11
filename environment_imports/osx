@@ -1,6 +1,3 @@
 if [ `uname -s` = "Darwin" ]; then
-
-  PROMPT_COMMAND='echo -ne "\033]0; ${PWD##*/}\007"'
-
   alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 fi
