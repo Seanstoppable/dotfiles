@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dag/vim-fish'
 Plug 'dahu/vim-lotr'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
