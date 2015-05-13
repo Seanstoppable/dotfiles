@@ -24,7 +24,7 @@ function parse_postgres_status() {
 
 function is_mongo_running() {
 
-  if pgrep mongo > /dev/null
+  if pgrep mongod > /dev/null
   then
     echo  "M"
   else
