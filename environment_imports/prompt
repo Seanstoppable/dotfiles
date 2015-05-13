@@ -22,6 +22,16 @@ function parse_postgres_status() {
   fi
 }
 
+function is_mongo_running() {
+
+  if pgrep mongo > /dev/null
+  then
+    echo  "M"
+  else
+    echo ""
+  fi
+}
+
 function parse_git_dirty() {
   regex="working directory clean"
   if [[ $1 =~ $regex ]]
@@ -91,7 +101,8 @@ function current_git_branch() {
 
 function service_markers {
   postgres=`parse_postgres_status`
-  echo $postgres
+  mongo=`is_mongo_running`
+  echo $postgres$mongo
 }
 
 function current_git_branch_with_markers {
