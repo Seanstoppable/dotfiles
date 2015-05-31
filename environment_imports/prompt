@@ -11,6 +11,16 @@ function parse_project_name() {
   echo `git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
 }
 
+function is_zookeeper_running() {
+  echo stat | nc localhost 2181 &> /dev/null
+  if [[ $? -ne 0 ]]
+  then
+    echo ""
+  else
+    echo "Z"
+  fi
+}
+
 function parse_postgres_status() {
   postgres_status=`pg_ctl status 2> /dev/null`
   regex="server is running"
@@ -102,7 +112,8 @@ function current_git_branch() {
 function service_markers {
   postgres=`parse_postgres_status`
   mongo=`is_mongo_running`
-  values=$postgres$mongo
+  zookeeper=`is_zookeeper_running`
+  values=$mongo$postgres$zookeeper
   if [ -n "$values" ]; then
     echo "[$values]"
   fi
