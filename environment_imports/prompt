@@ -11,6 +11,16 @@ function parse_project_name() {
   echo `git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
 }
 
+function is_docker_running() {
+  docker info &> /dev/null
+  if [[ $? -ne 0 ]]
+  then
+    echo ""
+  else
+    echo "D"
+  fi
+}
+
 function is_zookeeper_running() {
   echo stat | nc localhost 2181 &> /dev/null
   if [[ $? -ne 0 ]]
@@ -110,10 +120,11 @@ function current_git_branch() {
 }
 
 function service_markers {
-  postgres=`parse_postgres_status`
+  docker=`is_docker_running`
   mongo=`is_mongo_running`
+  postgres=`parse_postgres_status`
   zookeeper=`is_zookeeper_running`
-  values=$mongo$postgres$zookeeper
+  values=$docker$mongo$postgres$zookeeper
   if [ -n "$values" ]; then
     echo "[$values]"
   fi
