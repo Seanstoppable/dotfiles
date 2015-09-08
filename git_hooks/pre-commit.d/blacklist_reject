@@ -4,7 +4,7 @@
 
 echo "TEST"
 
-BLACKLIST="puts\|println"
+BLACKLIST="puts\|println\|<<<<<<< HEAD"
 
 for FILE in `git diff --cached --name-only` ; do
     if grep -wq $BLACKLIST $FILE; then
