@@ -34,7 +34,7 @@ IRB.conf[:HISTORY_FILE] = "~/.irbhistory"
 
 # load .irbrc_rails in rails environments
 railsrc_path = File.expand_path('~/.dotfiles/irbrc_rails')
-if ( ENV['RAILS_ENV'] || defined? Rails ) && File.exist?( railsrc_path )
+if ( ENV['RAILS_ENV'] && defined? Rails ) && File.exist?( railsrc_path )
   begin
     load railsrc_path
   rescue Exception
