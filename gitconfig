@@ -19,6 +19,8 @@
   drop1 = "stash drop stash@{0}"
   editlast = "!vim `git diff-tree --no-commit-id --name-only -r HEAD`"
   hist = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+  ignore = "update-index --assume-unchanged"
+  unignore = "!git update-index --no-assume-unchanged $1; git reset HEAD $1;  git checkout $1"
   ls = "log --oneline"
   nuke = "!git clean -fdx"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
