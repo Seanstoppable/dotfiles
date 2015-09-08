@@ -89,6 +89,8 @@ autocmd FileType scala set commentstring=//\ %s
 autocmd FileType ruby set commentstring=#\ %s
 autocmd FileType vim set commentstring=\"\ %s
 
+au BufRead,BufNewFile *.cap set filetype=ruby
+
 " Markdown language highlighting
 let g:markdown_fenced_languages = ['java', 'scala']
 
