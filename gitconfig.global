@@ -1,0 +1,5 @@
+[user]
+  name = Sean Smith
+
+[include]
+  path = ~/.dotfiles/gitconfig
