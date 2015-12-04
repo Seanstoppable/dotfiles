@@ -32,9 +32,7 @@ function is_zookeeper_running() {
 }
 
 function parse_postgres_status() {
-  postgres_status=`pg_ctl status 2> /dev/null`
-  regex="server is running"
-  if [[ $postgres_status =~ $regex ]]
+  if pgrep postgres > /dev/null
   then
     echo "P"
   else
