@@ -152,7 +152,7 @@ function set_prompt {
   local   CYAN='\[\e[1;36m\]'
   local NORMAL='\[\e[0m\]'
 
-  PS1="\h:\W \u $CYAN\$(service_markers)$GREEN\$(current_git_branch_with_markers) $NORMAL\$ "
+  PS1="\n\h:\W \u $CYAN\$(service_markers)$GREEN\$(current_git_branch_with_markers) $NORMAL\$ "
 }
 
 set_prompt
