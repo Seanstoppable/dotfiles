@@ -5,5 +5,7 @@
 .idea_modules
 vim/.netrwhist
 vim/plugged
+#vim/vim ends up being a circular dependency
+vim/vim
 target
 tmp/*
