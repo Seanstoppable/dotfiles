@@ -2,14 +2,25 @@
 command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; }
 
 apps=(
-  ag
   awscli
+  bash-completion
   git
-  neovim/neovim/neovim
+  neovim
   rbenv
+  the_silver_searcher
   vim
   watch
   wget
 )
 
-brew install ${apps[@]}
+
+MISSING=$(comm -1 -3 <(brew list) <(for X in "${apps[@]}"; do echo "${X}"; done|sort))
+INSTALLED=$(comm -1 -2 <(brew list) <(for X in "${apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
+
+if [[ ! -z ${MISSING} ]]; then
+  brew install ${MISSING}
+fi
+
+if [[ ! -z ${INSTALLED} ]]; then
+  brew upgrade ${INSTALLED}
+fi

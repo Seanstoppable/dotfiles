@@ -4,8 +4,8 @@ if command -v brew > /dev/null; then
     source `brew --prefix`/etc/bash_completion.d/git-completion.bash
   fi
 
-  if [ -f `brew --prefix`/etc/bash_completion.d/ag-completion.bash ]; then
-    source `brew --prefix`/etc/bash_completion.d/ag-completion.bash
+  if [ -f `brew --prefix`/etc/bash_completion.d/ag-bashcomp.sh ]; then
+    source `brew --prefix`/etc/bash_completion.d/ag.bashcomp.sh 
   fi
 fi
 
