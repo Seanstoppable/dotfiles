@@ -7,5 +7,6 @@ vim/.netrwhist
 vim/plugged
 #vim/vim ends up being a circular dependency
 vim/vim
+vim/init.vim
 target
 tmp/*
