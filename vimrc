@@ -78,8 +78,8 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
 " autosort scala imports
-autocmd Filetype scala SortScalaImports
-autocmd BufWritePre *.scala :SortScalaImports
+"autocmd Filetype scala SortScalaImports
+"autocmd BufWritePre *.scala :SortScalaImports
 
 " spellchecking for git commits
 autocmd FileType gitcommit setlocal spell
@@ -138,6 +138,11 @@ if &shell =~# 'fish$'
   set shell=bash
 endif
 
+if has('nvim')
+  nnoremap <leader>o :below 10sp term://$SHELL<cr>i
+endif
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
