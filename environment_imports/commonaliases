@@ -10,7 +10,7 @@ alias vi='vim'
 alias restart-vpn='sudo launchctl stop com.apple.racoon && sudo launchctl start com.apple.racoon'
 
 #docker
-alias dockerclean='docker rm $(docker ps -a -q)'
+alias dockerclean='docker rm $(docker ps -a | grep -v Up | grep -v "CONTAINER ID" | cut -c1-12) 2>/dev/null'
 alias dc='docker-compose'
 alias dip="docker-machine ip default"
 
