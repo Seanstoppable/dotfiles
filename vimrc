@@ -13,6 +13,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'dag/vim-fish'
 Plug 'dahu/vim-lotr'
 Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -32,6 +33,7 @@ set si " Smart indent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 
 " set delete as backspace
 set backspace=indent,eol,start
