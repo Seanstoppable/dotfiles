@@ -1,3 +1,5 @@
 if [ `uname -s` = "Darwin" ]; then
   alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 fi
+
+alias wifihistory='defaults read /Library/Preferences/SystemConfiguration/com.apple.airport.preferences | grep LastConnected -A 7'
