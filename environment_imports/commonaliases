@@ -17,12 +17,15 @@ alias dip="docker-machine ip default"
 #git
 alias gitree='git log --graph --pretty=oneline --abbrev-commit'
 alias gitreset='git reset --hard origin/`git branch --contains | sed "s/\* //g"`'
-alias gitclean='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d'
 
 #java
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
+
+jsonview () { 
+  curl "$@" | python -m json.tool | less
+}
 
 #include any local aliases
 if [ -f ~/.aliases ] ; then
