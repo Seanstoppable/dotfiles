@@ -17,10 +17,16 @@ brew_apps=(
   wget
 )
 
-brew cask install bitbar 2> /dev/null
+cask_apps=(
+  bitbar
+  soundcast
+)
 
 MISSING=$(comm -1 -3 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort))
 INSTALLED=$(comm -1 -2 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
+
+CASK_MISSING=$(comm -1 -3 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort))
+CASK_INSTALLED=$(comm -1 -2 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
 
 if [[ ! -z ${MISSING} ]]; then
   brew install ${MISSING}
@@ -28,4 +34,12 @@ fi
 
 if [[ ! -z ${INSTALLED} ]]; then
   brew upgrade ${INSTALLED} 2> /dev/null
+fi
+
+if [[ ! -z ${CASK_MISSING} ]]; then
+  brew cask install ${CASK_MISSING} 
+fi
+
+if [[ ! -z ${CASK_INSTALLED} ]]; then
+  brew cask upgrade ${CASK_INSTALLED} 2> /dev/null
 fi
