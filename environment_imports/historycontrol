@@ -6,16 +6,4 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
 
 shopt -s histappend
 
-history() {
-  _bash_history_sync
-  builtin history "$@"
-}
-
-_bash_history_sync() {
-  builtin history -a         #1
-  HISTFILESIZE=$HISTFILESIZE #2
-  builtin history -c         #3
-  builtin history -r         #4
-}
-
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}_bash_history_sync"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
