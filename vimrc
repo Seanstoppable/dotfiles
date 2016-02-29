@@ -81,6 +81,12 @@ set history=1000
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" When open a new file remember the cursor position of the last editing
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
+endif
+
 " auto remove whitespace from certain files
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
