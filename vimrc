@@ -14,6 +14,7 @@ Plug 'dag/vim-fish'
 Plug 'dahu/vim-lotr'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
@@ -147,6 +148,8 @@ endif
 if has('nvim')
   nnoremap <leader>o :below 10sp term://$SHELL<cr>i
 endif
+
+let vim_markdown_preview_github=1
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
