@@ -11,9 +11,9 @@ alias restart-vpn='sudo launchctl stop com.apple.racoon && sudo launchctl start 
 
 #docker
 alias dockerclean='docker rm $(docker ps -a | grep -v Up | grep -v "CONTAINER ID" | cut -c1-12) 2>/dev/null'
-alias dockerreboot='docker-machine restart default; eval "$(docker-machine env default)"'
+alias dockerreboot='docker-machine restart default; eval $(docker-machine env default)'
 alias dc='docker-compose'
-alias dip="docker-machine ip default"
+alias dip='docker-machine ip default'
 
 #git
 alias gitree='git log --graph --pretty=oneline --abbrev-commit'
