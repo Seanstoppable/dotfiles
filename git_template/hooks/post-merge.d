@@ -1,0 +1,1 @@
+/Users/ssmith/.dotfiles/git_hooks/post-merge.d/
