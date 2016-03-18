@@ -68,6 +68,9 @@ set showmode
 map <Leader>cl :GitGutterDisable<CR>:set nonumber<CR>
 map <Leader>sl :GitGutterEnable<CR>:set number<CR>
 
+"easy copy
+map <leader><Space> :%w !pbcopy<CR>
+
 let NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
 
