@@ -28,6 +28,9 @@ set showmatch  "Show matching bracets when text indicator is over them
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
+" Don't hide double quotes in JSON syntax
+let g:vim_json_syntax_conceal = 0
+
 " Switch on filetype detection and loads
 " indent file (indent.vim) for specific file types
 filetype indent on
