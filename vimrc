@@ -1,20 +1,41 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'mileszs/ack.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'conorclifford/vim-apidoc'
-Plug 'tpope/vim-commentary'
+"Used often
+
+"Git tags in left hand side
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Always create directory path
 Plug 'pbrisbin/vim-mkdir'
-Plug 'derekwyatt/vim-scala'
+"Directory exploration
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+"Meaning to use more
+
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
+" Languages
+
+Plug 'conorclifford/vim-apidoc'
 Plug 'dag/vim-fish'
-Plug 'dahu/vim-lotr'
+Plug 'derekwyatt/vim-scala'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
+
+" Experimental
+
+"Register browsing
+Plug 'dahu/vim-lotr'
+"Tex language
+Plug 'lervag/vimtex'
+"General test framework
+Plug 'janko-m/vim-test'
+"Testing markdown previews
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'kannokanno/previm'
 
 call plug#end()
 
