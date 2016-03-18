@@ -2,4 +2,5 @@ if [ `uname -s` = "Darwin" ]; then
   alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 fi
 
+alias restart-vpn='sudo launchctl stop com.apple.racoon && sudo launchctl start com.apple.racoon'
 alias wifihistory='defaults read /Library/Preferences/SystemConfiguration/com.apple.airport.preferences | grep LastConnected -A 7'

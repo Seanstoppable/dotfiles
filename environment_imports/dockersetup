@@ -1,1 +1,7 @@
 eval "$(docker-machine env default)"
+
+#docker
+alias dockerclean='docker rm $(docker ps -a | grep -v Up | grep -v "CONTAINER ID" | cut -c1-12) 2>/dev/null'
+alias dockerreboot='docker-machine restart default; eval $(docker-machine env default)'
+alias dc='docker-compose'
+alias dip='docker-machine ip default'
