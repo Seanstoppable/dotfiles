@@ -111,6 +111,13 @@ set history=1000
 set undofile
 set undodir=~/.vim/undodir
 
+"cycle windows/buffers
+nnoremap <Leader>[ :bprevious<CR>
+nnoremap <Leader>] :bnext<CR>
+nnoremap <Tab> <C-W><C-W>
+set splitbelow
+set splitright
+
 " highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
