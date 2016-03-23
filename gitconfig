@@ -23,5 +23,6 @@
   unignore = "!git update-index --no-assume-unchanged $1; git reset HEAD $1;  git checkout $1"
   ls = "log --oneline"
   nuke = "!git clean -fdx"
+  patch = "add --patch"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
   undo = "reset --soft HEAD^"
