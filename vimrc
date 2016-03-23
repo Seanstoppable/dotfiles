@@ -204,6 +204,12 @@ endif
 
 let vim_markdown_preview_github=1
 
+"auto source .vimrc on change
+augroup source_vimrc
+  autocmd!
+  autocmd BufWritePost .vimrc,_vimrc,vimrc,.vimrc.local source ~/.vimrc
+augroup END
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
