@@ -114,6 +114,10 @@ set undodir=~/.vim/undodir
 "cycle windows/buffers
 nnoremap <Leader>[ :bprevious<CR>
 nnoremap <Leader>] :bnext<CR>
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 nnoremap <Tab> <C-W><C-W>
 set splitbelow
 set splitright
