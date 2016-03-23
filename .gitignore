@@ -9,5 +9,6 @@ vim/plugged
 #vim/vim ends up being a circular dependency
 vim/vim
 vim/init.vim
+vim/undodir/*
 target
 tmp/*

@@ -108,6 +108,8 @@ set tm=500
 
 " big history
 set history=1000
+set undofile
+set undodir=~/.vim/undodir
 
 " highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
