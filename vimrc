@@ -89,6 +89,11 @@ set showmode
 map <Leader>cl :GitGutterDisable<CR>:set nonumber<CR>
 map <Leader>sl :GitGutterEnable<CR>:set number<CR>
 
+"git stuff
+"grabbed from https://github.com/ajh17/dotfiles/blob/master/.vimrc
+nnoremap <leader>go :silent !tig<CR>:silent redraw!<CR>
+nnoremap <leader>gB :silent !tig blame %+<C-r>=expand(line('.'))<CR><CR>:silent redraw!<CR>
+
 "easy copy
 map <leader><Space> :%w !pbcopy<CR>
 
@@ -113,6 +118,8 @@ if has("autocmd")
   " When editing a file, always jump to the last cursor position
   autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
 endif
+"unless we are a git commit, in which case, start at the start
+autocmd BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " auto remove whitespace from certain files
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
