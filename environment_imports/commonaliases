@@ -15,6 +15,6 @@ jsonview () {
 }
 
 #include any local aliases
-if [ -f ~/.aliases ] ; then
-  source ~/.aliases
+if [ -f ~/.aliases.local ] ; then
+  source ~/.aliases.local
 fi
