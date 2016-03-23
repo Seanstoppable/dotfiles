@@ -92,7 +92,7 @@ map <Leader>sl :GitGutterEnable<CR>:set number<CR>
 "git stuff
 "grabbed from https://github.com/ajh17/dotfiles/blob/master/.vimrc
 nnoremap <leader>go :silent !tig<CR>:silent redraw!<CR>
-nnoremap <leader>gB :silent !tig blame %+<C-r>=expand(line('.'))<CR><CR>:silent redraw!<CR>
+nnoremap <leader>gb :silent !tig blame % +<C-r>=expand(line('.'))<CR><CR>:silent redraw!<CR>
 
 "easy copy
 map <leader><Space> :%w !pbcopy<CR>
