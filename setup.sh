@@ -12,4 +12,4 @@ cp ~/.dotfiles/gitconfig.global ~/.gitconfig
 
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.dotfiles/vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.dotfiled/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+ln -s ~/.dotfiles/vimrc $XDG_CONFIG_HOME/nvim/init.vim
