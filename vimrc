@@ -27,6 +27,8 @@ Plug 'fatih/vim-go'
 
 " Experimental
 
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 "Register browsing
 Plug 'dahu/vim-lotr'
 "Tex language
@@ -205,6 +207,8 @@ if has('nvim')
 endif
 
 let vim_markdown_preview_github=1
+
+nnoremap <leader>t :TagbarToggle<CR>
 
 "auto source .vimrc on change
 augroup source_vimrc

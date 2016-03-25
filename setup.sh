@@ -6,6 +6,7 @@ ln -sf ~/.dotfiles/irbrc ~/.irbrc
 ln -sf ~/.dotfiles/psqlrc ~/.psqlrc
 ln -sf ~/.dotfiles/vim ~/.vim
 ln -sf ~/.dotfiles/vimrc ~/.vimrc
+ln -sf ~/.dotfiles/ctags ~/.ctags
 cp ~/.dotfiles/gitconfig.global ~/.gitconfig
 
 ./osxsetup.sh

@@ -8,6 +8,7 @@ brew_apps=(
   awscli
   awsshell
   bash-completion
+  ctags
   git
   neovim
   pwgen
