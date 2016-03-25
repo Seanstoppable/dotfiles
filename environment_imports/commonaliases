@@ -8,7 +8,7 @@ alias vi='vim'
 
 #git
 alias gitree='git log --graph --pretty=oneline --abbrev-commit'
-alias gitreset='git reset --hard origin/`git branch --contains | sed "s/\* //g"`'
+alias gitreset='git reset --hard origin/`git branch --contains | grep \* | sed "s/\* //g"`'
 
 jsonview () { 
   curl "$@" | python -m json.tool | less
