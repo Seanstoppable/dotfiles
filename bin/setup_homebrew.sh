@@ -10,8 +10,10 @@ brew_apps=(
   bash-completion
   git
   neovim
+  pwgen
   rbenv
   the_silver_searcher
+  tig
   vim
   watch
   wget
