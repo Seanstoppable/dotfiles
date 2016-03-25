@@ -72,6 +72,8 @@ set backspace=indent,eol,start
 """"""""""""""""""""""""""""""""""
 " set nu " Number lines
 set hls " highlight search
+" Clear the search buffer when hitting return
+nnoremap <cr> :nohlsearch<cr>
 set lbr " linebreak
 
 set wildmode=list:longest "make cmdline tab completion similar to bash
