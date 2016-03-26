@@ -3,6 +3,10 @@ command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubuse
 
 brew tap Seanstoppable/random 2> /dev/null
 brew tap caskroom/cask 2> /dev/null
+brew tap universal-ctags/universal-ctags 2> /dev/null
+
+#head only formula
+brew install --HEAD universal-ctags 2> /dev/null
 
 brew_apps=(
   awscli
