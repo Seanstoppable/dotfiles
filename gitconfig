@@ -4,6 +4,9 @@
 [core]
   excludesfile = ~/.dotfiles/.gitignore
 
+[push]
+	default = simple
+
 [color]
     diff = auto
     branch = auto
