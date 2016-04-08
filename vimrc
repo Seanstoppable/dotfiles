@@ -93,6 +93,9 @@ set showmode
 map <Leader>cl :GitGutterDisable<CR>:set nonumber<CR>
 map <Leader>sl :GitGutterEnable<CR>:set number<CR>
 
+"easy make
+map <Leader>m :make<CR>
+
 "git stuff
 "grabbed from https://github.com/ajh17/dotfiles/blob/master/.vimrc
 nnoremap <leader>go :silent !tig<CR>:silent redraw!<CR>
