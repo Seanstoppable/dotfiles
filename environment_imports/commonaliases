@@ -14,8 +14,3 @@ alias gitpush='git push -f origin `git branch --contains | grep \* | sed "s/\* /
 jsonview () { 
   curl "$@" | python -m json.tool | less
 }
-
-#include any local aliases
-if [ -f ~/.aliases.local ] ; then
-  source ~/.aliases.local
-fi

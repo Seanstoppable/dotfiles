@@ -33,3 +33,13 @@ esac
 if [ -f ~/.bashhub/bashhub.sh ]; then
     source ~/.bashhub/bashhub.sh
 fi
+
+### source any local bash
+if [ -f ~/.bashrc.local ] ; then
+  source ~/.bashrc.local
+fi
+
+#include any local aliases
+if [ -f ~/.aliases.local ] ; then
+  source ~/.aliases.local
+fi
