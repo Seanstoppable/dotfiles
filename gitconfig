@@ -28,5 +28,6 @@
   ls = "log --oneline"
   nuke = "!git clean -fdx"
   patch = "add --patch"
+  sincetag = "!git log --pretty=\"%s - %an\" `git describe --abbrev=0`..HEAD"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
   undo = "reset --soft HEAD^"
