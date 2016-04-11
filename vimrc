@@ -219,6 +219,21 @@ augroup source_vimrc
   autocmd BufWritePost .vimrc,_vimrc,vimrc,.vimrc.local source ~/.vimrc
 augroup END
 
+function! NumberToggle()
+  if(&relativenumber == 1 && &number == 1)
+    set number
+    set norelativenumber
+  elseif (&number == 1 && &relativenumber == 0)
+    set norelativenumber
+    set nonumber
+  else
+    set number
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>l :call NumberToggle()<CR>
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
