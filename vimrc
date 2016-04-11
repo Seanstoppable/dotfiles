@@ -25,10 +25,13 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 
-" Experimental
-
+"ctags support
+Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
+
+" Experimental
+
 "Register browsing
 Plug 'dahu/vim-lotr'
 "Tex language
@@ -150,6 +153,8 @@ autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
 " spellchecking for git commits
 autocmd FileType gitcommit setlocal spell
+
+let g:easytags_suppress_ctags_warning = 1
 
 " specify comment types for some filetypes
 autocmd FileType scala set commentstring=//\ %s

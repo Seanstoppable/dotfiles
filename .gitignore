@@ -12,3 +12,4 @@ vim/init.vim
 vim/undodir/*
 target
 tmp/*
+.tags
