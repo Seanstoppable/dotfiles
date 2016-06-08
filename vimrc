@@ -41,6 +41,7 @@ Plug 'janko-m/vim-test'
 "Testing markdown previews
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'kannokanno/previm'
+Plug 'mrtazz/vim-stencil'
 
 call plug#end()
 
@@ -153,6 +154,7 @@ autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
 
 " spellchecking for git commits
 autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
 
 let g:easytags_suppress_ctags_warning = 1
 
@@ -217,6 +219,9 @@ endif
 let vim_markdown_preview_github=1
 
 nnoremap <leader>t :TagbarToggle<CR>
+"paste current date in yyyy-mm-dd format
+nnoremap <leader>d "=strftime("%Y-%m-%d")<CR>p
+nnoremap <leader>dd :%s/<<DATE>>/\=strftime("%Y-%m-%d")/g<CR>
 
 "auto source .vimrc on change
 augroup source_vimrc
@@ -242,4 +247,6 @@ nnoremap <leader>l :call NumberToggle()<CR>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+let g:StencilTemplatepath = "~/.dotfiles/vim/templates/"
 
