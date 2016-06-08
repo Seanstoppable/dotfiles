@@ -15,6 +15,7 @@ brew_apps=(
   ctags
   git
   neovim
+  pgcli
   pwgen
   rbenv
   the_silver_searcher
