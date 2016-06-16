@@ -14,6 +14,7 @@ brew_apps=(
   bash-completion
   ctags
   git
+  htop
   neovim
   pgcli
   pwgen
