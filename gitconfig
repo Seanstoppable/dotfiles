@@ -12,6 +12,9 @@
     branch = auto
     status = auto
 
+[commit]
+    verbose = true
+
 [diff]
 	compactionHeuristic = true
 
