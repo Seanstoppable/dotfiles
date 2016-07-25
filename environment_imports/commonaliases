@@ -6,8 +6,6 @@ alias ls='ls -G'
 alias screen='screen -DUR'
 alias vi='vim'
 
-alias psql='pgcli'
-
 #git
 alias gitree='git log --graph --pretty=oneline --abbrev-commit'
 alias gitreset='git reset --hard origin/`git branch --contains | grep \* | sed "s/\* //g"`'
