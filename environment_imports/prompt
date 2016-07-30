@@ -60,7 +60,7 @@ function is_mongo_running() {
 }
 
 function parse_git_dirty() {
-  regex="working directory clean"
+  regex="working tree clean"
   if [[ $1 =~ $regex ]]
   then
     echo ""
