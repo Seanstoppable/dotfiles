@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Security Roundup - <<DATE>>
+title: <<TITLE>> - <<DATE>>
 author: Sean
-category: security-roundup
+category: <<CATEGORY>>
 date: '<<DATE>>'
 tags:
 ---
