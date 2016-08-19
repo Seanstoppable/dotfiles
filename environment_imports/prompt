@@ -8,7 +8,7 @@
 # R rebasing
 
 function parse_project_name() {
-  echo `git remote -v | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
+  echo `git remote -v | grep origin | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
 }
 
 function is_docker_running() {
