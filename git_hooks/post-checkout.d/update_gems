@@ -1,5 +1,5 @@
 
 #bundle install if Gemfile exists
 if [ -f Gemfile ] ; then
-  bundle install > /dev/null &
+  bundle install
 fi

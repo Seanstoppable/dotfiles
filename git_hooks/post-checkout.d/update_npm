@@ -1,0 +1,5 @@
+
+#npm install is packages.json exists
+if [ -f package.json ] ; then
+  npm install
+fi
