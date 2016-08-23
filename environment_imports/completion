@@ -10,6 +10,9 @@ if command -v brew > /dev/null; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
   fi
+  if [ -f `brew --prefix`/etc/bash_completion.d/docker-compose ]; then
+    source `brew --prefix`/etc/bash_completion.d/docker-compose 
+  fi
 fi
 
 if [ -f /usr/local/bin/aws_completer ]; then
