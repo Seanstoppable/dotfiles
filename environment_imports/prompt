@@ -50,12 +50,21 @@ function is_redis_running() {
 }
 
 function is_mongo_running() {
-
   if pgrep mongod > /dev/null
   then
     echo  "M"
   else
     echo ""
+  fi
+}
+
+function is_rabbit_running() {
+  echo stat | nc localhost 5672 &> /dev/null
+  if [[ $? -ne 0 ]]
+  then
+    echo ""
+  else
+    echo "Q"
   fi
 }
 
@@ -137,8 +146,9 @@ function service_markers {
   mongo=`is_mongo_running`
   postgres=`is_postgres_running`
   zookeeper=`is_zookeeper_running`
+  rabbitmq=`is_rabbit_running`
   redis=`is_redis_running`
-  values=$docker$mongo$postgres$redis$zookeeper
+  values=$docker$mongo$postgres$redis$rabbitmq$zookeeper
   if [ -n "$values" ]; then
     echo "[$values]"
   fi
