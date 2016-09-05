@@ -259,3 +259,7 @@ endif
 
 let g:StencilTemplatepath = "~/.dotfiles/vim/templates/"
 
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
+endif
