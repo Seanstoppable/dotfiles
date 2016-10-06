@@ -10,13 +10,14 @@ brew install --HEAD universal-ctags 2> /dev/null
 
 brew_apps=(
   awscli
-  awsshell
+  aws-shell
   bash-completion
   ctags
   git
+  grip
+  gpg
   htop
   neovim
-  pgcli
   pwgen
   rbenv
   the_silver_searcher
