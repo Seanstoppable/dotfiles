@@ -12,10 +12,9 @@ brew_apps=(
   awscli
   aws-shell
   bash-completion
-  ctags
   git
+  gnupg2
   grip
-  gpg
   htop
   neovim
   pwgen
@@ -39,6 +38,7 @@ CASK_MISSING=$(comm -1 -3 <(brew cask list) <(for X in "${cask_apps[@]}"; do ech
 CASK_INSTALLED=$(comm -1 -2 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
 
 if [[ ! -z ${MISSING} ]]; then
+  echo "Installing missing program ${MISSING}"
   brew install ${MISSING}
 fi
 
@@ -47,9 +47,10 @@ if [[ ! -z ${INSTALLED} ]]; then
 fi
 
 if [[ ! -z ${CASK_MISSING} ]]; then
+  echo "Installing missing cask ${CASK_MISSING}"
   brew cask install ${CASK_MISSING} 
 fi
 
 if [[ ! -z ${CASK_INSTALLED} ]]; then
-  brew cask upgrade ${CASK_INSTALLED} 2> /dev/null
+  brew cask update ${CASK_INSTALLED} 2> /dev/null
 fi
