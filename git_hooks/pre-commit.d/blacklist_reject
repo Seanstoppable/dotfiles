@@ -6,7 +6,7 @@
 #println is java/scala
 #HEAD is messed up git merges
 #fmt.Print is go
-BLACKLIST="puts\|println\|fmt.Print\|foo\|HEAD"
+BLACKLIST="puts\|println\|fmt.Print\|HEAD"
 
 for FILE in `git diff --cached --name-only` ; do
   if grep -wq $BLACKLIST $FILE; then
