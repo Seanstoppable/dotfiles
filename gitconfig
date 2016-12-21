@@ -35,7 +35,7 @@
   ls = "log --oneline"
   nuke = "!git clean -fdx"
   patch = "add --patch"
-  sincetag = "!git log --pretty=\"%s - %an\" `git describe --abbrev=0`..HEAD"
+  sincetag = "!git log --no-merges --pretty=\"%s - %an\" `git describe --abbrev=0`..HEAD"
   stag = "!git tag -s -a"
   submit = "!f() { git push origin HEAD:refs/for/$1; }; f"
   undo = "reset --soft HEAD^"
