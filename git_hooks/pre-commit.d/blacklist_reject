@@ -6,10 +6,10 @@
 #println is java/scala
 #HEAD is messed up git merges
 #fmt.Print is go
-BLACKLIST="puts\|println\|fmt.Print\|HEAD"
+BLACKLIST="puts\|println\|fmt.Print\|<<<<<<< HEAD"
 
 for FILE in `git diff --cached --name-only` ; do
-  if grep -wq $BLACKLIST $FILE; then
+  if grep -wq "$BLACKLIST" $FILE; then
     echo "$FILE contains one or more blacklisted words ($BLACKLIST)."
     echo "You can skip this check with --no-verify."
     exit 1
