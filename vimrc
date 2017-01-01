@@ -9,6 +9,7 @@ Plug 'pbrisbin/vim-mkdir'
 "Directory exploration
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'editorconfig/editorconfig-vim'
 
 "Meaning to use more
 
