@@ -264,3 +264,6 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m
 endif
+
+autocmd BufRead,BufNewFile   *.md set textwidth=80
+set colorcolumn=+1
