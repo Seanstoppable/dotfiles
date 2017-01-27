@@ -15,6 +15,9 @@
 [diff]
 	compactionHeuristic = true
 
+[rerere]
+	enabled = true
+
 [push]
 	default = simple
 
