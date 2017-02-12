@@ -10,6 +10,7 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'editorconfig/editorconfig-vim'
+Plug '907th/vim-auto-save'
 
 "Meaning to use more
 
@@ -270,3 +271,5 @@ set textwidth=100
 autocmd BufRead,BufNewFile   *.md set textwidth=80
 autocmd BufRead,BufNewFile *.jade,*.pub set textwidth=0
 set colorcolumn=+1
+
+let g:auto_save = 1
