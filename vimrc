@@ -271,5 +271,3 @@ set textwidth=100
 autocmd BufRead,BufNewFile   *.md set textwidth=80
 autocmd BufRead,BufNewFile *.jade,*.pub set textwidth=0
 set colorcolumn=+1
-
-let g:auto_save = 1
