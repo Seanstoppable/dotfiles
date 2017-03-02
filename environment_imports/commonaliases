@@ -14,3 +14,7 @@ alias gitpush='git push --force-with-lease origin `git branch --contains | grep 
 jsonview () { 
   curl "$@" | python -m json.tool | less
 }
+
+port() {
+  lsof -n -i4TCP:$@ | grep LISTEN
+}
