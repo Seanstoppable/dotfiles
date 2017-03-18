@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 "Used often
+"templates
+Plug 'mrtazz/vim-stencil'
 
 "Git tags in left hand side
 Plug 'airblade/vim-gitgutter'
@@ -43,7 +45,6 @@ Plug 'janko-m/vim-test'
 "Testing markdown previews
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'kannokanno/previm'
-Plug 'mrtazz/vim-stencil'
 
 call plug#end()
 
