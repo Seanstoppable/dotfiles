@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+BRANCH=`git branch --contains | sed "s/\* //g"`
+git branch --set-upstream-to=origin/$BRANCH $BRANCH
