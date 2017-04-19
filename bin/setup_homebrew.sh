@@ -30,6 +30,7 @@ brew_apps=(
 
 cask_apps=(
   bitbar
+  dnscrypt
   soundcast
 )
 
