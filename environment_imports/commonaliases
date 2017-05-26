@@ -1,6 +1,7 @@
 #common aliases
 alias ...='cd ../..'
 alias grepr='grep -r -i --exclude *.svn-base'
+alias lbig='du -h -d1'
 alias ln='ln -v'
 alias ls='ls -G'
 alias screen='screen -DUR'
