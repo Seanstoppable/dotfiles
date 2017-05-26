@@ -147,6 +147,7 @@ if has("autocmd")
 endif
 "unless we are a git commit, in which case, start at the start
 autocmd BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+autocmd BufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " auto remove whitespace from certain files
 autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
@@ -219,7 +220,9 @@ if has('nvim')
   nnoremap <leader>o :below 10sp term://$SHELL<cr>i
 endif
 
+let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_github=1
+autocmd BufWritePost *.md call Vim_Markdown_Preview()
 
 nnoremap <leader>t :TagbarToggle<CR>
 "paste current date in yyyy-mm-dd format
