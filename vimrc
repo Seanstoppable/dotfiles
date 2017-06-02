@@ -222,7 +222,6 @@ endif
 
 let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_github=1
-autocmd BufWritePost *.md call Vim_Markdown_Preview()
 
 nnoremap <leader>t :TagbarToggle<CR>
 "paste current date in yyyy-mm-dd format
