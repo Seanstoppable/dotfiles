@@ -8,12 +8,11 @@
 # R rebasing
 
 function parse_project_name() {
-  echo `git remote -v | grep origin | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'`
+  echo $(git remote -v | grep origin | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//')
 }
 
 function is_docker_running() {
-  docker info &> /dev/null
-  if [[ $? -ne 0 ]]
+  if ! docker info &> /dev/null 
   then
     echo ""
   else
@@ -22,8 +21,7 @@ function is_docker_running() {
 }
 
 function is_zookeeper_running() {
-  echo stat | nc localhost 2181 &> /dev/null
-  if [[ $? -ne 0 ]]
+  if ! (echo stat | nc localhost 2181 &> /dev/null)
   then
     echo ""
   else
@@ -59,8 +57,7 @@ function is_mongo_running() {
 }
 
 function is_rabbit_running() {
-  echo stat | nc localhost 5672 &> /dev/null
-  if [[ $? -ne 0 ]]
+  if ! (echo stat | nc localhost 5672 &> /dev/null)
   then
     echo ""
   else
@@ -89,12 +86,12 @@ function parse_git_rebasing() {
 }
 
 function parse_git_stash() {
-  stash=`git stash list 2> /dev/null | wc -l | tr -d ' '`
+  stash=$(git stash list 2> /dev/null | wc -l | tr -d ' ')
   [[ $stash != 0 ]] && echo "^$stash"
 }
 
 function parse_git_tag() {
-  tag=`git describe 2> /dev/null`
+  tag=$(git describe 2> /dev/null)
   [[ $tag != 0 ]] && echo "$tag"
 }
 
@@ -142,12 +139,12 @@ function current_git_branch() {
 }
 
 function service_markers {
-  docker=`is_docker_running`
-  mongo=`is_mongo_running`
-  postgres=`is_postgres_running`
-  zookeeper=`is_zookeeper_running`
-  rabbitmq=`is_rabbit_running`
-  redis=`is_redis_running`
+  docker=$(is_docker_running)
+  mongo=$(is_mongo_running)
+  postgres=$(is_postgres_running)
+  zookeeper=$(is_zookeeper_running)
+  rabbitmq=$(is_rabbit_running)
+  redis=$(is_redis_running)
   values=$docker$mongo$postgres$redis$rabbitmq$zookeeper
   if [ -n "$values" ]; then
     echo "[$values]"
@@ -155,20 +152,20 @@ function service_markers {
 }
 
 function current_git_branch_with_markers {
-  current=`current_git_branch`
+  current=$(current_git_branch)
   if [[ $current ]]
   then
-    project=`parse_project_name`
-    git_status=`git status 2> /dev/null`
-    tag=`parse_git_tag`
-    stash=`parse_git_stash`
-    ahead=`parse_git_ahead "$git_status"`
-    behind=`parse_git_behind "$git_status"`
-    diverge=`parse_git_diverge "$git_status"`
-    dirty=`parse_git_dirty "$git_status"`
-    rebasing=`parse_git_rebasing "$git_status"`
-    cherry_picking=`parse_cherry_picking "$git_status"`
-    echo $project/$current/$tag | sed -e "s/\(.*\)/\[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
+    project=$(parse_project_name)
+    git_status=$(git status 2> /dev/null)
+    tag=$(parse_git_tag)
+    stash=$(parse_git_stash)
+    ahead=$(parse_git_ahead "$git_status")
+    behind=$(parse_git_behind "$git_status")
+    diverge=$(parse_git_diverge "$git_status")
+    dirty=$(parse_git_dirty "$git_status")
+    rebasing=$(parse_git_rebasing "$git_status")
+    cherry_picking=$(parse_cherry_picking "$git_status")
+    echo "$project/$current/$tag" | sed -e "s/\(.*\)/\[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
 
   fi
 }
