@@ -39,20 +39,20 @@ INSTALLED=$(comm -1 -2 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"
 CASK_MISSING=$(comm -1 -3 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort))
 CASK_INSTALLED=$(comm -1 -2 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
 
-if [[ ! -z ${MISSING} ]]; then
+if [[ ! -z "${MISSING}" ]]; then
   echo "Installing missing program ${MISSING}"
-  brew install ${MISSING}
+  brew install "${MISSING}"
 fi
 
-if [[ ! -z ${INSTALLED} ]]; then
-  brew upgrade ${INSTALLED} 2> /dev/null
+if [[ ! -z "${INSTALLED}" ]]; then
+  brew upgrade "${INSTALLED}" 2> /dev/null
 fi
 
-if [[ ! -z ${CASK_MISSING} ]]; then
+if [[ ! -z "${CASK_MISSING}" ]]; then
   echo "Installing missing cask ${CASK_MISSING}"
-  brew cask install ${CASK_MISSING} 
+  brew cask install "${CASK_MISSING}"
 fi
 
-if [[ ! -z ${CASK_INSTALLED} ]]; then
-  brew cask update ${CASK_INSTALLED} 2> /dev/null
+if [[ ! -z "${CASK_INSTALLED}" ]]; then
+  brew cask update "${CASK_INSTALLED}" 2> /dev/null
 fi
