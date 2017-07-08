@@ -45,6 +45,7 @@ Plug 'janko-m/vim-test'
 "Testing markdown previews
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'kannokanno/previm'
+Plug 'reedes/vim-wordy'
 
 call plug#end()
 
@@ -275,5 +276,5 @@ endif
 "default textwidth and then specific overrides
 set textwidth=100
 autocmd BufRead,BufNewFile   *.md set textwidth=80
-autocmd BufRead,BufNewFile *.jade,*.pub set textwidth=0
+autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
 set colorcolumn=+1
