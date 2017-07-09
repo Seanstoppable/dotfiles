@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 mkdir -p ~/bin
 
@@ -11,9 +11,9 @@ cp ~/.dotfiles/gitconfig.global ~/.gitconfig
 
 ./osxsetup.sh
 
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.dotfiles/vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.dotfiles/vimrc $XDG_CONFIG_HOME/nvim/init.vim
+mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
+ln -s ~/.dotfiles/vim "$XDG_CONFIG_HOME/nvim"
+ln -s ~/.dotfiles/vimrc "$XDG_CONFIG_HOME/nvim/init.vim"
 
 mkdir -p ~/.sbt/0.13/plugins
 ln -s ~/.dotfiles/sbtplugins.sbt ~/.sbt/0.13/plugins/dotfileplugins.sbt
