@@ -1,3 +1,4 @@
+#!/bin/sh
 
 #bundle install if Gemfile exists
 #if [ -f build.sbt ] ; then
