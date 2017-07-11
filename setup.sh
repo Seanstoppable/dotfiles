@@ -15,5 +15,10 @@ mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
 ln -s ~/.dotfiles/vim "$XDG_CONFIG_HOME/nvim"
 ln -s ~/.dotfiles/vimrc "$XDG_CONFIG_HOME/nvim/init.vim"
 
+#make sure gpg exists for programs that use it
+if command -v gpg2 >/dev/null 2>&1; then
+  ln -s "$(command -v gpg2)" ~/bin/gpg
+fi
+
 mkdir -p ~/.sbt/0.13/plugins
 ln -s ~/.dotfiles/sbtplugins.sbt ~/.sbt/0.13/plugins/dotfileplugins.sbt
