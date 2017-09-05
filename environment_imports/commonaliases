@@ -1,5 +1,7 @@
 #common aliases
 alias ...='cd ../..'
+#use cat wrapper to stop guessing which cat command to use
+alias cat=super-cat
 alias grepr='grep -r -i --exclude *.svn-base'
 alias lbig='du -h -d1'
 alias ln='ln -v'

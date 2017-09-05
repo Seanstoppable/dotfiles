@@ -1,0 +1,13 @@
+#!/bin/bash
+
+file=$1
+
+if [[ "$file" == *.lz4 ]]
+then
+  lz4cat "$file"
+elif [[ "$file" == *.gz ]]
+then
+  zcat "$file"
+else
+  cat "$file"
+fi
