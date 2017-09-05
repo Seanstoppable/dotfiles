@@ -18,6 +18,7 @@ brew_apps=(
   gnupg2
   grip
   htop
+  lz4
   pwgen
   rbenv
   the_silver_searcher
