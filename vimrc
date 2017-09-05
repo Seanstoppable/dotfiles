@@ -230,8 +230,15 @@ nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>d "=strftime("%Y-%m-%d")<CR>p
 nnoremap <leader>dd :%s/<<DATE>>/\=strftime("%Y-%m-%d")/g<CR>
 
+nnoremap <leader>af :Stencil apidoc_field<CR>
+nnoremap <leader>am :Stencil apidoc_model<CR>
+
+nnoremap <leader>gm :0read !git sincetag<CR>
+
 nnoremap <leader>ll :%s/^/'/g<bar>%s/$/',/g<CR>
 nnoremap <leader>lldb :%s/^/('/g<bar>%s/$/'),/g<CR>
+
+nnoremap <leader>q :let @/ = ""<CR>
 
 " Netrw options
 let g:netrw_altv = 1
