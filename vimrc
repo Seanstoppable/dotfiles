@@ -35,6 +35,7 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
 " Experimental
+Plug 'w0rp/ale'
 
 "Register browsing
 Plug 'dahu/vim-lotr'
@@ -272,6 +273,17 @@ if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m
 endif
+
+" ALE linting events
+set updatetime=1000
+let g:ale_lint_on_text_changed = 0
+autocmd CursorHold * call ale#Lint()
+autocmd CursorHoldI * call ale#Lint()
+autocmd InsertEnter * call ale#Lint()
+autocmd InsertLeave * call ale#Lint()
+
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
 
 "default textwidth and then specific overrides
 set textwidth=100
