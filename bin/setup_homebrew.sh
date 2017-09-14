@@ -57,3 +57,5 @@ fi
 if [[ ! -z "${CASK_INSTALLED}" ]]; then
   brew cask update "${CASK_INSTALLED}" 2> /dev/null
 fi
+
+pip install vim-vint
