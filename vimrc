@@ -68,7 +68,7 @@ let g:vim_json_syntax_conceal = 0
 filetype indent on
 filetype on
 set autoindent " Copy indent from the row above
-set si " Smart indent
+set smartindent " Smart indent
 " Use 2 space instead of tab during format
 set expandtab
 set shiftwidth=2
@@ -82,10 +82,10 @@ set backspace=indent,eol,start
 " Some other confy settings
 """"""""""""""""""""""""""""""""""
 " set nu " Number lines
-set hls " highlight search
+set hlsearch " highlight search
 " Clear the search buffer when hitting return
 "nnoremap <cr> :nohlsearch<cr>
-set lbr " linebreak
+set linebreak " linebreak
 
 set wildmode=list:longest "make cmdline tab completion similar to bash
 set wildmenu              "enable ctrl-n and ctrl-p to scroll thru matches
@@ -120,7 +120,7 @@ map <Leader>n :NERDTreeToggle<CR>
 set noerrorbells
 set novisualbell
 set t_vb=
-set tm=500
+set timeoutlen=500
 
 " big history
 set history=1000
@@ -270,11 +270,11 @@ endfunc
 
 nnoremap <leader>l :call NumberToggle()<CR>
 
-if filereadable(expand("~/.vimrc.local"))
+if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
-let g:StencilTemplatepath = "~/.dotfiles/vim/templates/"
+let g:StencilTemplatepath = '~/.dotfiles/vim/templates/'
 
 if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
