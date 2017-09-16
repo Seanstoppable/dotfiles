@@ -20,9 +20,11 @@ brew_apps=(
   git
   gnupg2
   grip
+  hadolint
   htop
   lz4
   pwgen
+  shellcheck
   the_silver_searcher
   tig
   vim
@@ -60,4 +62,28 @@ if [[ ! -z "${CASK_INSTALLED}" ]]; then
   brew cask update "${CASK_INSTALLED}" 2> /dev/null
 fi
 
-pip install vim-vint
+pip_packages=(
+  ansible-lint
+  vim-vint
+  yamllint
+)
+
+MISSING=$(comm -1 -3 <(pip list --format=columns | awk -F" " '{print $1}') <(for X in "${pip_packages[@]}"; do echo "${X}"; done|sort))
+INSTALLED=$(comm -1 -2 <(pip list --format=columns | awk -F" " '{print $1}') <(for X in "${pip_packages[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
+
+if [[ ! -z "${MISSING}" ]]; then
+  echo "Installing missing program ${MISSING}"
+  pip install "${MISSING}"
+fi
+
+gems=(
+  sqlint
+)
+
+MISSING=$(comm -1 -3 <(gem list --no-versions ) <(for X in "${gems[@]}"; do echo "${X}"; done|sort))
+INSTALLED=$(comm -1 -2 <(gem list --no-versions ) <(for X in "${gems[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
+
+if [[ ! -z "${MISSING}" ]]; then
+  echo "Installing missing program ${MISSING}"
+  gem install "${MISSING}"
+fi
