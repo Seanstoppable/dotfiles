@@ -143,31 +143,43 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " When open a new file remember the cursor position of the last editing
-if has("autocmd")
-  " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
-endif
-"unless we are a git commit, in which case, start at the start
-autocmd BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-autocmd BufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
+augroup autocmd
+  autocmd!
+  if has('autocmd')
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
+  endif
+  "unless we are a git commit, in which case, start at the start
+  autocmd BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+  autocmd BufEnter TAG_EDITMSG call setpos('.', [0, 1, 1, 0])
+augroup END
 
 " auto remove whitespace from certain files
-autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
+augroup whitespace
+  autocmd!
+  autocmd BufWritePre *.scala,*.rb,*.yml,*.java,*.csv,*.js,*.json :%s/\s\+$//e
+augroup END
 
 " autosort scala imports
 "autocmd Filetype scala SortScalaImports
 "autocmd BufWritePre *.scala :SortScalaImports
 
 " spellchecking for git commits
-autocmd FileType gitcommit setlocal spell
-autocmd FileType markdown setlocal spell
+augroup spellcheck
+  autocmd!
+  autocmd FileType gitcommit setlocal spell
+  autocmd FileType markdown setlocal spell
+augroup END
 
 let g:easytags_suppress_ctags_warning = 1
 
 " specify comment types for some filetypes
-autocmd FileType scala set commentstring=//\ %s
-autocmd FileType ruby set commentstring=#\ %s
-autocmd FileType vim set commentstring=\"\ %s
+augroup commentstrings
+  autocmd!
+  autocmd FileType scala set commentstring=//\ %s
+  autocmd FileType ruby set commentstring=#\ %s
+  autocmd FileType vim set commentstring=\"\ %s
+augroup END
 
 au BufRead,BufNewFile *.cap set filetype=ruby
 
@@ -284,16 +296,22 @@ endif
 " ALE linting events
 set updatetime=1000
 let g:ale_lint_on_text_changed = 0
-autocmd CursorHold * call ale#Lint()
-autocmd CursorHoldI * call ale#Lint()
-autocmd InsertEnter * call ale#Lint()
-autocmd InsertLeave * call ale#Lint()
+augroup ale
+  autocmd!
+  autocmd CursorHold * call ale#Lint()
+  autocmd CursorHoldI * call ale#Lint()
+  autocmd InsertEnter * call ale#Lint()
+  autocmd InsertLeave * call ale#Lint()
+augroup END
 
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 
 "default textwidth and then specific overrides
 set textwidth=100
-autocmd BufRead,BufNewFile   *.md set textwidth=80
-autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
+augroup indenting
+  autocmd!
+  autocmd BufRead,BufNewFile   *.md set textwidth=80
+  autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
+augroup END
 set colorcolumn=+1
