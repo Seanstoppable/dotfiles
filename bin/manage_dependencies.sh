@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-#install brew is not installed
+#install brew if not installed
 command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; }
+
+#install asdf if not installed
+command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0 ; }
 
 brew tap Seanstoppable/random 2> /dev/null
 brew tap caskroom/cask 2> /dev/null
@@ -20,7 +23,6 @@ brew_apps=(
   htop
   lz4
   pwgen
-  rbenv
   the_silver_searcher
   tig
   vim

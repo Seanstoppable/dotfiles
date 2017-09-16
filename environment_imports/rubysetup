@@ -1,4 +1,0 @@
-export ARCHFLAGS="-arch x86_64"
-if command -v rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
