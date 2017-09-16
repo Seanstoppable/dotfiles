@@ -35,7 +35,6 @@ brew_apps=(
 cask_apps=(
   bitbar
   dnscrypt
-  soundcast
 )
 
 MISSING=$(comm -1 -3 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort))
