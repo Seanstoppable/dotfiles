@@ -1,6 +1,33 @@
-export ARCHFLAGS="-arch x86_64"
+# shellcheck disable=SC1090
 if [ -d "$HOME/.asdf" ]; then
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
+  . "$HOME/.asdf/asdf.sh"
+  . "$HOME/.asdf/completions/asdf.bash"
 fi
+
+#Ruby
+export ARCHFLAGS="-arch x86_64"
+
+#Golang
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+#Golang END
+
+#Java
+export ANT_OPTS="-Xmx4048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=4024m -XX:+HeapDumpOnOutOfMemoryError"
+export GRADLE_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
+export JAVA_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
+export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=256m"
+export SBT_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
+
+#no java plugin for asdf
+if which jenv > /dev/null; 
+  then eval "$(jenv init -)"; 
+fi
+
+#java
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
+
+#Java END
 
