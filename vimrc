@@ -113,7 +113,7 @@ nnoremap <leader>gb :silent !tig blame % +<C-r>=expand(line('.'))<CR><CR>:silent
 "easy copy
 map <leader><Space> :%w !pbcopy<CR>
 
-let NERDTreeShowHidden=1
+let g:NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
 
 " No annoying sound on errors
@@ -234,8 +234,8 @@ if has('nvim')
   nnoremap <leader>o :below 10sp term://$SHELL<cr>i
 endif
 
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_github=1
+let g:vim_markdown_preview_browser='Google Chrome'
+let g:vim_markdown_preview_github=1
 
 nnoremap <leader>t :TagbarToggle<CR>
 "paste current date in yyyy-mm-dd format
