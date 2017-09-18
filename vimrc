@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 "Used often
 "templates
 Plug 'mrtazz/vim-stencil'
-
 "Git tags in left hand side
 Plug 'airblade/vim-gitgutter'
 "Always create directory path
@@ -11,17 +10,18 @@ Plug 'pbrisbin/vim-mkdir'
 "Directory exploration
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"Linting
+Plug 'w0rp/ale'
+"Other
 Plug 'editorconfig/editorconfig-vim'
 Plug '907th/vim-auto-save'
 
 "Meaning to use more
-
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Languages
-
 Plug 'conorclifford/vim-apidoc'
 Plug 'dag/vim-fish'
 Plug 'derekwyatt/vim-scala'
@@ -35,7 +35,6 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
 " Experimental
-Plug 'w0rp/ale'
 
 "Register browsing
 Plug 'dahu/vim-lotr'
