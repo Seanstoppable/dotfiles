@@ -27,4 +27,6 @@ if command -v gpg2 >/dev/null 2>&1; then
 fi
 
 mkdir -p ~/.sbt/0.13/plugins
+mkdir -p ~/.sbt/1.0/plugins
 ln -s ~/.dotfiles/sbtplugins.sbt ~/.sbt/0.13/plugins/dotfileplugins.sbt
+ln -s ~/.dotfiles/sbtplugins.sbt ~/.sbt/1.0/plugins/dotfileplugins.sbt
