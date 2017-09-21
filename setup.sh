@@ -7,7 +7,13 @@ ln -sf ~/.dotfiles/psqlrc ~/.psqlrc
 ln -sf ~/.dotfiles/vim ~/.vim
 ln -sf ~/.dotfiles/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/ctags ~/.ctags
-cp ~/.dotfiles/gitconfig.global ~/.gitconfig
+
+GITCONFIG=~/.gitconfig
+if [ ! -f "$GITCONFIG" ]; then
+  cp ~/.dotfiles/gitconfig.global "$GITCONFIG"
+else
+  echo "$GITCONFIG already exists, skipping"
+fi
 
 ./osxsetup.sh
 
