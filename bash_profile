@@ -3,8 +3,10 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 set bell-style visible
 
 if [ -d ~/.dotfiles/environment_imports ] ; then
-  for file in `ls -A ~/.dotfiles/environment_imports` ; do
-    source ~/.dotfiles/environment_imports/$file
+  for file in ~/.dotfiles/environment_imports/* ; do
+    [[ -e $file ]] || break
+    # shellcheck source=/dev/null
+    source "$file"
   done
 fi
 
@@ -31,15 +33,18 @@ esac
 
 ### Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.sh ]; then
-    source ~/.bashhub/bashhub.sh
+  # shellcheck source=/dev/null
+  source ~/.bashhub/bashhub.sh
 fi
 
 ### source any local bash
 if [ -f ~/.bashrc.local ] ; then
+  # shellcheck source=/dev/null
   source ~/.bashrc.local
 fi
 
 #include any local aliases
 if [ -f ~/.aliases.local ] ; then
+  # shellcheck source=/dev/null
   source ~/.aliases.local
 fi
