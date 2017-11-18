@@ -8,6 +8,9 @@ then
 elif [[ "$file" == *.gz ]]
 then
   zcat "$file"
+elif [[ "$file" == *.bz2 ]]
+then
+  bzcat "$file"
 else
   cat "$file"
 fi
