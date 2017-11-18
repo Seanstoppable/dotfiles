@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+BRANCH=$(git branch --contains | grep "\*" | sed "s/\* //g")
+git fetch upstream
+git merge "upstream/${BRANCH}"
