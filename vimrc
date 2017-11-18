@@ -160,8 +160,10 @@ augroup whitespace
 augroup END
 
 " autosort scala imports
+"augroup sortscalaimports
 "autocmd Filetype scala SortScalaImports
 "autocmd BufWritePre *.scala :SortScalaImports
+"augroup END
 
 " spellchecking for git commits
 augroup spellcheck
