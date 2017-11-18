@@ -10,6 +10,8 @@ export ARCHFLAGS="-arch x86_64"
 #Golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+alias gocover="echo 'mode: atomic' > coverage.txt && go list ./... | xargs -n1 -I{} sh -c 'go test -covermode=atomic -coverprofile=coverage.tmp {} && tail -n +2 coverage.tmp >> coverage.txt' && rm coverage.tmp"
+
 #Golang END
 
 #Java
