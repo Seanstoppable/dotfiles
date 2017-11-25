@@ -34,7 +34,13 @@ brew_apps=(
 
 cask_apps=(
   bitbar
+  blockblock
+  cyberduck
   dnscrypt
+  flux
+  gimp
+  keka
+  oversight
 )
 
 MISSING=$(comm -1 -3 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort))
