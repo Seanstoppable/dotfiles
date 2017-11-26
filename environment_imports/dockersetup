@@ -1,3 +1,4 @@
 #docker
 alias dockerclean='docker rm $(docker ps -a | grep -v Up | grep -v "CONTAINER ID" | cut -c1-12) 2>/dev/null'
+alias dockertrim='docker rmi $(docker images | grep "<none>" | cut -c 80-91)'
 alias dc='docker-compose'
