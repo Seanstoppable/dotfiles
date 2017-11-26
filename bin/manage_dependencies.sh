@@ -41,6 +41,10 @@ cask_apps=(
   gimp
   keka
   oversight
+  postman
+  qbittorrent
+  veracrypt
+  yed
 )
 
 MISSING=$(comm -1 -3 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort))
