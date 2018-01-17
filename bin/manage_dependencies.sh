@@ -23,6 +23,7 @@ brew_apps=(
   hadolint
   htop
   lz4
+  mercurial
   pwgen
   shellcheck
   the_silver_searcher
