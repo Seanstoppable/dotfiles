@@ -6,6 +6,9 @@
     branch = auto
     status = auto
 
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
 [commit]
     verbose = true
 
