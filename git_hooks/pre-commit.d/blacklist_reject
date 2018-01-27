@@ -9,8 +9,9 @@
 BLACKLIST="puts\|println\|fmt.Print\|<<<<<<< HEAD"
 
 for FILE in $(git diff --cached --name-only) ; do
-  if grep -wq "$BLACKLIST" "$FILE"; then
+  if git diff --cached "$FILE" | grep ^+ | grep -wq "$BLACKLIST"; then
     echo "$FILE contains one or more blacklisted words ($BLACKLIST)."
+    git diff --cached "$FILE" | grep ^+ | grep -w "$BLACKLIST"
     echo "You can skip this check with --no-verify."
     exit 1
   fi
