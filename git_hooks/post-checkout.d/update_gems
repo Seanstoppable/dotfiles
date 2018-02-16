@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #bundle install if Gemfile exists
-if [ -f Gemfile ] ; then
+#if [ -f Gemfile ] ; then
   #bundle install
-fi
+#fi
