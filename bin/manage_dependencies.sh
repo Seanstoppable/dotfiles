@@ -45,6 +45,7 @@ cask_apps=(
   postman
   qbittorrent
   veracrypt
+  vlc
   yed
 )
 
