@@ -12,7 +12,11 @@ fi
 
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
+#add anything I have in dotfiles
 PATH="$HOME/.dotfiles/bin:$PATH"
+
+#prioritive asdf
+PATH="/Users/ssmith/.asdf/shims:$PATH"
 
 export EDITOR=vim
 
