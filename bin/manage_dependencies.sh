@@ -3,8 +3,13 @@
 #install brew if not installed
 command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; }
 
-#install asdf if not installed
-command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.3.0 ; }
+#install asdf and plugin if not installed
+command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.3 ; }
+asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+asdf plugin-add java https://github.com/skotchpine/asdf-java.git
+asdf plugin-add python https://github.com/tuvistavie/asdf-python.git
+asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+
 
 brew tap Seanstoppable/random 2> /dev/null
 brew tap caskroom/cask 2> /dev/null
