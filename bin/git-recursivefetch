@@ -1,0 +1,15 @@
+(
+  cd "$1" || exit
+  for dir in */ ; do
+    (
+    echo "$dir"
+    cd "$dir" || exit
+    if [ -d ".git" ]; then
+      git fetch > /dev/null
+      git pull > /dev/null
+    else
+      echo "**$dir is not a git directory**"
+    fi
+    )
+  done
+)
