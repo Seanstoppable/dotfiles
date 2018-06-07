@@ -22,6 +22,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 
 " Languages
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'conorclifford/vim-apidoc'
 Plug 'dag/vim-fish'
 Plug 'derekwyatt/vim-scala'
