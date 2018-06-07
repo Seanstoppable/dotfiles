@@ -110,7 +110,7 @@ nnoremap <leader>go :silent !tig<CR>:silent redraw!<CR>
 nnoremap <leader>gb :silent !tig blame % +<C-r>=expand(line('.'))<CR><CR>:silent redraw!<CR>
 
 "easy copy
-map <leader><Space> :%w !pbcopy<CR>
+map <leader><Space> :%y+<CR>
 
 let g:NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
