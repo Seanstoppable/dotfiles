@@ -60,8 +60,6 @@ else
   puts "$XDG_CONFIG_HOME/nvim/init.vim already exists, skipping"
 fi
 
-./osxsetup.sh
-
 #make sure gpg exists for programs that use it
 if command -v gpg2 >/dev/null 2>&1; then
   ln -s "$(command -v gpg2)" ~/bin/gpg
