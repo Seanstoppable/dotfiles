@@ -5,6 +5,12 @@ VERBOSE=false
 
 mkdir -p ~/bin
 
+puts(){
+  if [ $VERBOSE = true ]; then
+    echo "$1"
+  fi
+}
+
 files=(
   irbrc 
   psqlrc
@@ -18,9 +24,7 @@ for item in ${files[*]}; do
   if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
     ln -s "$DOTFILES_HOME/$filename" "$CANDIDATE"
   else
-    if [ $VERBOSE = true ]; then
-      echo "$CANDIDATE already exists, skipping"
-    fi
+    puts "$CANDIDATE already exists, skipping"
   fi
 done
 
@@ -28,9 +32,7 @@ GITCONFIG=~/.gitconfig
 if [ ! -f "$GITCONFIG" ]; then
   cp "$DOTFILES_HOME/gitconfig.global $GITCONFIG"
 else
-  if [ $VERBOSE = true ]; then
-    echo "$GITCONFIG already exists, skipping"
-  fi
+  puts "$GITCONFIG already exists, skipping"
 fi
 
 #create .config groups if they exist
@@ -40,17 +42,25 @@ for filename in *; do
   if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
     ln -s "$DOTFILES_HOME/.config/$filename $CANDIDATE"
   else
-    if [ $VERBOSE = true ]; then
-      echo "$CANDIDATE already exists, skipping"
-    fi
+    puts "$CANDIDATE already exists, skipping"
   fi
 done
 
-./osxsetup.sh
-
 mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
-ln -s "$DOTFILES_HOME/vim $XDG_CONFIG_HOME/nvim"
-ln -s "$DOTFILES_HOME/vimrc $XDG_CONFIG_HOME/nvim/init.vim"
+
+if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
+  ln -s "$DOTFILES_HOME/vim $XDG_CONFIG_HOME/nvim"
+else
+  puts "$XDG_CONFIG_HOME/nvim already exists, skipping"
+fi
+
+if [ ! -f "$XDG_CONFIG_HOME/nvim/init.vim" ]; then
+  ln -s "$DOTFILES_HOME/vimrc $XDG_CONFIG_HOME/nvim/init.vim"
+else
+  puts "$XDG_CONFIG_HOME/nvim/init.vim already exists, skipping"
+fi
+
+./osxsetup.sh
 
 #make sure gpg exists for programs that use it
 if command -v gpg2 >/dev/null 2>&1; then
