@@ -1,0 +1,83 @@
+#/bin/bash
+# A git commit-msg hook to create a jira ticket automatically when
+# the commit message starts with PROJ-* (where PROJ is a JIRA project)
+#
+# To install in your project, run /web/tools/bin/install-jira-star-git-hook
+
+JIRA_JAR="`dirname $0`/jira-cli.jar"
+JIRA_SERVER=''
+JIRA_USER=''
+JIRA_PASS=''
+JIRA_CMD="java -jar $JIRA_JAR"
+
+COMMITMSG=$1
+
+# this parses the project name, subject, etc. from the commit msg
+# capture groups: 1=PROJ, 2=LINE1SUFFIX, 3=SUBJ
+COMMIT_REGEX='^\([a-zA-Z0-9]*\)-\*\([^:]*[:][ ]*\(.*\)\)$'
+
+PROJ=`head -n 1 $COMMITMSG | sed -e "s/${COMMIT_REGEX}/\1/p;d"`
+
+if [ -n "$PROJ" ] ; then
+  LINE1SUFFIX=`head -n 1 $COMMITMSG | sed -e "s/${COMMIT_REGEX}/\2/p;d"`
+  SUBJ=`head -n 1 $COMMITMSG | sed -e "s/${COMMIT_REGEX}/\3/p;d"`
+  DESC_CHECK=`tail -n +2 $COMMITMSG | sed -e "/^#.*$/d;/^Change-Id: .*$/d;/^[[:space:]]*$/d"`
+  DESC_CHGID=`tail -n +2 $COMMITMSG | sed -e "/^#.*$/d"`
+  DESC=`tail -n +2 $COMMITMSG | sed -e "/^#.*$/d;/^Change-Id: .*$/d"`
+  EMAIL=`git config user.jirauser 2>/dev/null`
+  if [ -z "$EMAIL" ] ; then
+    EMAIL=`git config user.email`
+  fi
+
+  if [ -z "$DESC_CHECK" ] ; then
+    DESC="$SUBJ"
+  fi
+
+  if [ ! -e "$JIRA_JAR" ] ; then
+    echo "'${JIRA_JAR}' is missing"
+    echo "(this commit hook should be installed by running /web/tools/install-jira-star-git-hook in your repo)"
+    exit 3
+  fi
+
+  echo "${PROJ}-* creating a JIRA ticket..."
+
+  JIRA_OUT=$($JIRA_CMD -s "$JIRA_SERVER" -u "$JIRA_USER" -p "$JIRA_PASS" \
+    --action createIssue --type 1 \
+    --project "$PROJ" \
+    --summary "$SUBJ" \
+    --reporter "$EMAIL" \
+    --assignee "$EMAIL" \
+    --description "$DESC" 2>&1)
+
+  JIRA_EXIT=$?
+
+  JIRA_OUT=`tr '\n' ' ' <<< "$JIRA_OUT"`
+
+  if [ $JIRA_EXIT != 0 ] ; then
+    echo "${PROJ}-* ticket creation failed: $JIRA_OUT"
+
+    if [[ "$JIRA_OUT" =~ [Uu]ser\ \'[^\']*\'\ does\ not\ exist || "$JIRA_OUT" =~ "cannot be assigned" ]] ; then
+      echo ""
+      echo "It looks like your JIRA username is not the same as your email address."
+      echo "To enable the JIRA-* commit hook, find your username at:"
+      echo "https://giltgroupe.onjira.com/secure/ViewProfile.jspa"
+      echo "and then run $ git config --global --add user.jirauser \$YOUR_JIRA_USERNAME"
+      echo ""
+    fi
+
+    exit 1
+  else
+    NEWBUG=`sed -e "s/^.*\(${PROJ}-[0-9][0-9]*\).*$/\1/p;d" <<< "$JIRA_OUT"`
+
+    if [ -z $NEWBUG ] ; then
+      echo "${PROJ}-* ticket creation failed: ticket number not found ($JIRA_OUT)"
+      exit 1
+    fi
+
+    echo "${NEWBUG} JIRA ticket created (and commit msg updated)"
+    echo "${JIRA_SERVER}/browse/${NEWBUG}"
+  fi
+
+  echo "${NEWBUG}${LINE1SUFFIX}" > $COMMITMSG
+  cat - >> $COMMITMSG <<< "$DESC_CHGID"
+fi
