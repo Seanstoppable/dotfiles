@@ -1,0 +1,13 @@
+--write-info-json
+--write-description
+--write-annotations
+
+--write-sub
+--write-auto-sub
+--sub-lang en
+--convert-subs srt
+
+-f "[height <=? 720]"
+
+-o "~/Downloads/Movies/%(uploader)s/%(title)s.%(ext)s"
+
