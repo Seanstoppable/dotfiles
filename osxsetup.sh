@@ -1,4 +1,4 @@
-#/usr/bin/env sh
+#!/usr/bin/env sh
 
 #show all files in finder
 defaults write com.apple.finder AppleShowAllFiles YES
