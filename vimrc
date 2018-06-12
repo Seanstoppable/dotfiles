@@ -282,6 +282,10 @@ function! NumberToggle()
   endif
 endfunc
 
+function! Distinct()
+  :%!awk '\!_[$0]++'
+endfunc
+
 nnoremap <leader>l :call NumberToggle()<CR>
 
 if filereadable(expand('~/.vimrc.local'))
