@@ -1,12 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
 mkdir -p ~/bin
 
-ln -sf ~/.dotfiles/irbrc ~/.irbrc
-ln -sf ~/.dotfiles/psqlrc ~/.psqlrc
-ln -sf ~/.dotfiles/vim ~/.vim
-ln -sf ~/.dotfiles/vimrc ~/.vimrc
-ln -sf ~/.dotfiles/ctags ~/.ctags
+files=(
+  irbrc 
+  psqlrc
+  vim
+  vimrc
+  ctags
+)
+
+for item in ${files[*]}; do
+  CANDIDATE="$HOME/.$item"
+  if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
+    ln -s "$HOME/.dotfiles/$filename" "$CANDIDATE"
+  else
+    echo "$CANDIDATE already exists, skipping"
+  fi
+done
 
 GITCONFIG=~/.gitconfig
 if [ ! -f "$GITCONFIG" ]; then
@@ -14,6 +25,17 @@ if [ ! -f "$GITCONFIG" ]; then
 else
   echo "$GITCONFIG already exists, skipping"
 fi
+
+#create .config groups if they exist
+cd .config || exit
+for filename in *; do
+  CANDIDATE="$HOME/.config/$filename"
+  if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
+    ln -s "$HOME/.dotfiles/.config/$filename $CANDIDATE"
+  else
+    echo "$CANDIDATE already exists, skipping"
+  fi
+done
 
 ./osxsetup.sh
 
