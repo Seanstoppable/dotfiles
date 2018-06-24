@@ -9,5 +9,6 @@
 
 -f "[height <=? 720]"
 
--o "~/Downloads/Movies/%(uploader)s/%(title)s.%(ext)s"
+--download-archive ~/.personal/youtube-archive/youtube-dl-archive.txt
 
+-o "~/Downloads/Movies/%(uploader)s/%(upload_date)s - %(title)s.%(ext)s"
