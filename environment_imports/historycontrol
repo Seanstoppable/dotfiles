@@ -1,7 +1,7 @@
 export HISTSIZE="UNLIMITED"
 export HISTFILESIZE="UNLIMITED"
 export HISTCONTROL=ignoredups:erasedups:ignorespace
-export HISTIGNORE='&:bg:fg:clear:ls:pwd:history:exit:* --help:'
+export HISTIGNORE='&:bg:fg:clear:ls:pwd:history:exit:'
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
 
 shopt -s histappend
