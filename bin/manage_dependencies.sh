@@ -13,6 +13,7 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 brew tap Seanstoppable/random 2> /dev/null
 brew tap caskroom/cask 2> /dev/null
+brew tap caskroom/versions 2> /dev/null
 brew tap universal-ctags/universal-ctags 2> /dev/null
 
 #head only formula
