@@ -19,8 +19,8 @@ files=(
   ctags
 )
 
-for item in ${files[*]}; do
-  CANDIDATE="$HOME/.$item"
+for filename in ${files[*]}; do
+  CANDIDATE="$HOME/.$filename"
   if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
     ln -s "$DOTFILES_HOME/$filename" "$CANDIDATE"
   else
