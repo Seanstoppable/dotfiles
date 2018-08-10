@@ -319,5 +319,6 @@ augroup indenting
   autocmd!
   autocmd BufRead,BufNewFile   *.md set textwidth=80
   autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
+  autocmd BufRead,BufNewFile *.csv set textwidth=0
 augroup END
 set colorcolumn=+1
