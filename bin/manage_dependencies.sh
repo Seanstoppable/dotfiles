@@ -64,20 +64,20 @@ CASK_INSTALLED=$(comm -1 -2 <(brew cask list) <(for X in "${cask_apps[@]}"; do e
 
 if [[ ! -z "${MISSING}" ]]; then
   echo "Installing missing program ${MISSING}"
-  brew install "${MISSING}"
+  brew install $MISSING
 fi
 
 if [[ ! -z "${INSTALLED}" ]]; then
-  brew upgrade "${INSTALLED}" 2> /dev/null
+  brew upgrade $INSTALLED 2> /dev/null
 fi
 
 if [[ ! -z "${CASK_MISSING}" ]]; then
   echo "Installing missing cask ${CASK_MISSING}"
-  brew cask install "${CASK_MISSING}"
+  brew cask install $CASK_MISSING
 fi
 
 if [[ ! -z "${CASK_INSTALLED}" ]]; then
-  brew cask update "${CASK_INSTALLED}" 2> /dev/null
+  brew cask update $CASK_INSTALLED 2> /dev/null
 fi
 
 pip_packages=(
@@ -91,7 +91,7 @@ INSTALLED=$(comm -1 -2 <(pip list --format=columns | awk -F" " '{print $1}') <(f
 
 if [[ ! -z "${MISSING}" ]]; then
   echo "Installing missing program ${MISSING}"
-  pip install "${MISSING}"
+  pip install $MISSING
 fi
 
 gems=(
@@ -103,5 +103,5 @@ INSTALLED=$(comm -1 -2 <(gem list --no-versions ) <(for X in "${gems[@]}"; do ec
 
 if [[ ! -z "${MISSING}" ]]; then
   echo "Installing missing program ${MISSING}"
-  gem install "${MISSING}"
+  gem install $MISSING
 fi
