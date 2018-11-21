@@ -34,6 +34,7 @@ alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
 #Java END
 
 #C++
+export LIBRARY_PATH="/usr/local/lib"
 export CMAKE_BUILD_PARALLEL_LEVEL=$(sysctl -n hw.ncpu)
 
 #C++ END
