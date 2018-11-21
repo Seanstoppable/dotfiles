@@ -324,3 +324,8 @@ augroup indenting
   autocmd BufRead,BufNewFile *.csv set textwidth=0
 augroup END
 set colorcolumn=+1
+
+augroup languageoverrides
+  autocmd!
+  autocmd BufRead,BufNewFile Jenkinsfile set syntax=groovy
+augroup END
