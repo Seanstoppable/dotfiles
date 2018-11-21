@@ -1,0 +1,16 @@
+#!/bin/sh
+(
+  cd "$1" || exit
+  for dir in */ ; do
+    (
+    cd "$dir" || exit
+    if [ -d ".git" ]; then
+      stashes=$(git stash list)
+      if [ ${#stashes} -gt 0 ]; then
+        echo "$dir"
+        echo "$stashes"
+      fi
+    fi
+    )
+  done
+)
