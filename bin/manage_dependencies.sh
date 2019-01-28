@@ -1,16 +1,30 @@
 #!/usr/bin/env bash
 
+# Function wrapper to handle diffs and selectively install/upgrade
+__install() {
+  MISSING=$(comm -1 -3 <($1) <(for X in $2; do echo "${X}"; done|sort))
+  INSTALLED=$(comm -1 -2 <($1) <(for X in $2; do echo "${X}"; done|sort) | tr '\n' ' ')
+  
+  if [[ -n "${MISSING}" ]]; then
+    echo "Installing missing program ${MISSING}"
+    $3 "$MISSING"
+  fi
+
+  if [[ -n "${INSTALLED}" ]]; then
+    $4 "$INSTALLED" 2> /dev/null
+  fi
+}
+
 #install brew if not installed
 command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; }
 
 #install asdf and plugin if not installed
-command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0 ; }
-asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-asdf plugin-add java https://github.com/skotchpine/asdf-java.git
-asdf plugin-add python https://github.com/tuvistavie/asdf-python.git
-asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
+command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.3 ; }
+asdf plugin-add golang https://github.com/kennyp/asdf-golang.git 2> /dev/null
+asdf plugin-add java https://github.com/skotchpine/asdf-java.git 2> /dev/null
+asdf plugin-add python https://github.com/tuvistavie/asdf-python.git 2> /dev/null
+asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git 2> /dev/null
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2> /dev/null
 
 brew tap Seanstoppable/random 2> /dev/null
 brew tap caskroom/cask 2> /dev/null
@@ -40,45 +54,26 @@ brew_apps=(
   wget
 )
 
+__install "brew list" "${brew_apps[@]}" "brew install" "brew upgrade"
+
 cask_apps=(
   bitbar
   blockblock
   cyberduck
-  dnscrypt
+#  dnscrypt
   flux
   gimp
-  keka
-  oversight
+  keepassxc
+#  keka
+#  oversight
   postman
-  qbittorrent
-  veracrypt
+#  qbittorrent
+#  veracrypt
   vlc
   yed
 )
 
-MISSING=$(comm -1 -3 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort))
-INSTALLED=$(comm -1 -2 <(brew list) <(for X in "${brew_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
-
-CASK_MISSING=$(comm -1 -3 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort))
-CASK_INSTALLED=$(comm -1 -2 <(brew cask list) <(for X in "${cask_apps[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
-
-if [[ ! -z "${MISSING}" ]]; then
-  echo "Installing missing program ${MISSING}"
-  brew install $MISSING
-fi
-
-if [[ ! -z "${INSTALLED}" ]]; then
-  brew upgrade $INSTALLED 2> /dev/null
-fi
-
-if [[ ! -z "${CASK_MISSING}" ]]; then
-  echo "Installing missing cask ${CASK_MISSING}"
-  brew cask install $CASK_MISSING
-fi
-
-if [[ ! -z "${CASK_INSTALLED}" ]]; then
-  brew cask update $CASK_INSTALLED 2> /dev/null
-fi
+__install "brew cask list" "${cask_apps[@]}" "brew cask install" "brew cask upgrade"
 
 pip_packages=(
   ansible-lint
@@ -86,22 +81,10 @@ pip_packages=(
   yamllint
 )
 
-MISSING=$(comm -1 -3 <(pip list --format=columns | awk -F" " '{print $1}') <(for X in "${pip_packages[@]}"; do echo "${X}"; done|sort))
-INSTALLED=$(comm -1 -2 <(pip list --format=columns | awk -F" " '{print $1}') <(for X in "${pip_packages[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
-
-if [[ ! -z "${MISSING}" ]]; then
-  echo "Installing missing program ${MISSING}"
-  pip install $MISSING
-fi
+__install "pip list --format=columns | awk -F" "${pip_packages[@]}" "pip install" "pip install -U"
 
 gems=(
   sqlint
 )
 
-MISSING=$(comm -1 -3 <(gem list --no-versions ) <(for X in "${gems[@]}"; do echo "${X}"; done|sort))
-INSTALLED=$(comm -1 -2 <(gem list --no-versions ) <(for X in "${gems[@]}"; do echo "${X}"; done|sort) | tr '\n' ' ')
-
-if [[ ! -z "${MISSING}" ]]; then
-  echo "Installing missing program ${MISSING}"
-  gem install $MISSING
-fi
+__install "gem list --no-versions" "${gems[@]}" "gem install" "gem update"
