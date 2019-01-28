@@ -16,3 +16,9 @@ xcode-select --install
 
 # Disable autocorrect
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable automatic keyboard backlight
+defaults write com.apple.BezelServices kDim -bool false
+
+# Turn off backlight after interval of inactivity
+defaults write com.apple.BezelServices kDimTime -int 1
