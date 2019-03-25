@@ -12,6 +12,7 @@ puts(){
 }
 
 files=(
+  bash_profile
   irbrc 
   psqlrc
   vim
