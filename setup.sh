@@ -31,7 +31,7 @@ done
 
 GITCONFIG=~/.gitconfig
 if [ ! -f "$GITCONFIG" ]; then
-  cp "$DOTFILES_HOME/gitconfig.global $GITCONFIG"
+  cp "$DOTFILES_HOME/gitconfig.global" "$GITCONFIG"
 else
   puts "$GITCONFIG already exists, skipping"
 fi
