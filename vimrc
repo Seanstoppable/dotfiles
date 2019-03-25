@@ -307,10 +307,10 @@ let g:ale_fixers = {'cpp': ['clang-format']}
 let g:ale_ruby_ruby_executable = '~/.asdf/shims/ruby'
 augroup ale
   autocmd!
-  autocmd CursorHold * call ale#Lint()
-  autocmd CursorHoldI * call ale#Lint()
-  autocmd InsertEnter * call ale#Lint()
-  autocmd InsertLeave * call ale#Lint()
+  autocmd CursorHold * call ale#Queue(0)
+  autocmd CursorHoldI * call ale#Queue(0)
+  autocmd InsertEnter * call ale#Queue(0)
+  autocmd InsertLeave * call ale#Queue(0)
 augroup END
 
 nnoremap ]r :ALENextWrap<CR>
