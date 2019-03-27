@@ -1,2 +1,2 @@
 youtube-dl \
--a ~/.personal/youtube-archive/youtube-dl-channels.txt | grep -v 'download'
+-a ~/.config/youtube-archive/youtube-dl-channels.txt | grep -v 'download'
