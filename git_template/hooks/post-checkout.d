@@ -1,1 +1,0 @@
-/Users/ssmith/.dotfiles/git_hooks/post-checkout.d/
