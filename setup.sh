@@ -37,15 +37,17 @@ else
 fi
 
 #create .config groups if they exist
-cd .config || exit
-for filename in *; do
-  CANDIDATE="$HOME/.config/$filename"
-  if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
-    ln -s "$DOTFILES_HOME/.config/$filename $CANDIDATE"
-  else
-    puts "$CANDIDATE already exists, skipping"
-  fi
-done
+if [ -d .config ]; then
+  cd .config || exit
+  for filename in *; do
+    CANDIDATE="$HOME/.config/$filename"
+    if [ ! -f "$CANDIDATE" ] && [ ! -d "$CANDIDATE" ]; then
+      ln -s "$DOTFILES_HOME/.config/$filename $CANDIDATE"
+    else
+      puts "$CANDIDATE already exists, skipping"
+    fi
+  done
+fi
 
 mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
 
