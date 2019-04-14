@@ -1,6 +1,3 @@
-[init]
-  templatedir = ~/.dotfiles/git_template
-
 [color]
     diff = auto
     branch = auto
