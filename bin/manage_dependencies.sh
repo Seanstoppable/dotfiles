@@ -96,3 +96,13 @@ gems=(
 )
 
 __install "gem list --no-versions" "gem install" "gem update" "${gems[@]}"
+
+#Other bash completions
+COMPLETION_DIR=/usr/local/etc/bash_completion.d
+mkdir -p $COMPLETION_DIR
+#Maven
+wget https://raw.github.com/dimaj/maven-bash-completion/master/bash_completion.bash \
+  --output-document $COMPLETION_DIR/mvn
+#docker-compose
+wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose \
+  --output-document $COMPLETION_DIR/docker-compose
