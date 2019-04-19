@@ -26,6 +26,12 @@ defaults write com.apple.BezelServices kDim -bool false
 # Turn off backlight after interval of inactivity
 defaults write com.apple.BezelServices kDimTime -int 1
 
+# Write screenshots to Documents folder, making it easier to drag into browser
+defaults write com.apple.screencapture location ~/Documents
+
+# Restart UIServer to use updated location
+killall SystemUIServer
+
 # Set system hostname
 if [ ! -f ~/.hostname ] ; then
   echo "Enter hostname: "
