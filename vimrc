@@ -166,13 +166,6 @@ augroup END
 "autocmd BufWritePre *.scala :SortScalaImports
 "augroup END
 
-" spellchecking for git commits
-augroup spellcheck
-  autocmd!
-  autocmd FileType gitcommit setlocal spell
-  autocmd FileType markdown setlocal spell
-augroup END
-
 let g:easytags_suppress_ctags_warning = 1
 
 " specify comment types for some filetypes
@@ -320,13 +313,7 @@ nnoremap [r :ALEPreviousWrap<CR>
 set textwidth=100
 augroup indenting
   autocmd!
-  autocmd BufRead,BufNewFile   *.md set textwidth=80
   autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
   autocmd BufRead,BufNewFile *.csv set textwidth=0
 augroup END
 set colorcolumn=+1
-
-augroup languageoverrides
-  autocmd!
-  autocmd BufRead,BufNewFile Jenkinsfile set syntax=groovy
-augroup END
