@@ -2,16 +2,24 @@
 
 # Function wrapper to handle diffs and selectively install/upgrade
 __install() {
-  MISSING=$(comm -1 -3 <($1) <(for X in $2; do echo "${X}"; done|sort))
-  INSTALLED=$(comm -1 -2 <($1) <(for X in $2; do echo "${X}"; done|sort) | tr '\n' ' ')
+  LIST_COMMAND=$1
+  INSTALL_COMMAND=$2
+  UPDATE_COMMAND=$3
+  shift
+  shift
+  shift
+  APPS=("$@")
+
+  MISSING=$(comm -1 -3 <($LIST_COMMAND) <(for X in $APPS; do echo "${X}"; done|sort))
+  INSTALLED=$(comm -1 -2 <($LIST_COMMAND) <(for X in $APPS; do echo "${X}"; done|sort) | tr '\n' ' ')
   
   if [[ -n "${MISSING}" ]]; then
     echo "Installing missing program ${MISSING}"
-    $3 "$MISSING"
+    $INSTALL_COMMAND "$MISSING"
   fi
 
   if [[ -n "${INSTALLED}" ]]; then
-    $4 "$INSTALLED" 2> /dev/null
+    $UPDATE_COMMAND "$INSTALLED" 2> /dev/null
   fi
 }
 
@@ -54,17 +62,17 @@ brew_apps=(
   wget
 )
 
-__install "brew list" "${brew_apps[@]}" "brew install" "brew upgrade"
+__install "brew list" "brew install" "brew upgrade" "${brew_apps[@]}"
 
 cask_apps=(
-  bitbar
+#  bitbar
   blockblock
   cyberduck
 #  dnscrypt
   flux
   gimp
   keepassxc
-#  keka
+  keka
 #  oversight
   postman
 #  qbittorrent
@@ -73,7 +81,7 @@ cask_apps=(
   yed
 )
 
-__install "brew cask list" "${cask_apps[@]}" "brew cask install" "brew cask upgrade"
+__install "brew cask list" "brew cask install" "brew cask upgrade" "${cask_apps[@]}"
 
 pip_packages=(
   ansible-lint
@@ -81,10 +89,10 @@ pip_packages=(
   yamllint
 )
 
-__install "pip list --format=columns | awk -F" "${pip_packages[@]}" "pip install" "pip install -U"
+__install "pip list --format=columns | awk -F" "pip install" "pip install -U" "${pip_packages[@]}"
 
 gems=(
   sqlint
 )
 
-__install "gem list --no-versions" "${gems[@]}" "gem install" "gem update"
+__install "gem list --no-versions" "gem install" "gem update" "${gems[@]}"
