@@ -47,12 +47,11 @@ brew_apps=(
   aws-shell
   bash-completion
   git
-  gnupg2
+  gnupg
   grip
   hadolint
   htop
   lz4
-  mercurial
   pwgen
   shellcheck
   the_silver_searcher
