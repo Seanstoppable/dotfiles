@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BRANCH=$1
+
+if [ -z "$BRANCH" ] ; then
+  echo "You must provide a new branch name"
+  return -1
+fi
+
+if [ $USERNAME_IN_BRANCHES ] ; then
+  BRANCH=$(whoami)/$BRANCH
+fi
+
+git checkout -b $BRANCH
