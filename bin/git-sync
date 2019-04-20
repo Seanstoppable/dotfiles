@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+  echo "Need to supply a branch to sync with"
+  exit -1
+fi
+
+git stash save
+git rebase "origin/$1"
+git stash pop
