@@ -20,7 +20,7 @@ export GRADLE_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSiz
 export JAVA_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
 export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=256m"
 export SBT_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
-export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -DtrimStackTrace=false"
 
 #no java plugin for asdf
 if which jenv > /dev/null; 
