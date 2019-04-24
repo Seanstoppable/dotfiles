@@ -52,3 +52,5 @@ if [ -f ~/.aliases.local ] ; then
   # shellcheck source=/dev/null
   source ~/.aliases.local
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
