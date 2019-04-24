@@ -127,6 +127,9 @@ if [ $? -ne 0 ] ; then
   xcode-select --install
 fi
 
+#Enable locate command
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
 # Restart services for effects
 killall Finder
 killall SystemUIServer
