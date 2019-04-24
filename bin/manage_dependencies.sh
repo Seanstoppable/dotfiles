@@ -70,6 +70,7 @@ cask_apps=(
 #  dnscrypt
   flux
   gimp
+  iterm2
   keepassxc
   keka
 #  oversight
