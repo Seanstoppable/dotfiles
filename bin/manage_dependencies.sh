@@ -52,6 +52,7 @@ brew_apps=(
   hadolint
   htop
   lz4
+  peco
   pwgen
   shellcheck
   the_silver_searcher
@@ -59,6 +60,7 @@ brew_apps=(
   vim
   watch
   wget
+  yank
 )
 
 __install "brew list" "brew install" "brew upgrade" "${brew_apps[@]}"

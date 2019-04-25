@@ -22,3 +22,7 @@ jsonview () {
 port() {
   lsof -n -i4TCP:$@ | grep LISTEN
 }
+
+py() {
+  $@ | peco | yank
+}
