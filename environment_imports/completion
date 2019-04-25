@@ -1,25 +1,17 @@
 if [ -f /usr/local/etc/profile.d/bash_completion.sh ] ; then
   [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d/"
 fi
 
+# brew based autocompletion
 if command -v brew > /dev/null; then
-
+  source "$(brew --prefix)"/etc/bash_completion.d/brew
+  source "$(brew --prefix)"/etc/bash_completion.d/brew-services
   if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
     source `brew --prefix`/etc/bash_completion.d/git-completion.bash
-  fi
-
-  if [ -f `brew --prefix`/etc/bash_completion.d/ag-bashcomp.sh ]; then
-    source `brew --prefix`/etc/bash_completion.d/ag.bashcomp.sh 
-  fi
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-  fi
-  if [ -f `brew --prefix`/etc/bash_completion.d/docker-compose ]; then
-    source `brew --prefix`/etc/bash_completion.d/docker-compose 
   fi
 fi
 
 if [ -f /usr/local/bin/aws_completer ]; then
   complete -C "/usr/local/bin/aws_completer" aws
 fi
-

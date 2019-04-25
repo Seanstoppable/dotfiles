@@ -45,7 +45,7 @@ brew install --HEAD universal-ctags 2> /dev/null
 brew_apps=(
   awscli
   aws-shell
-  bash-completion
+  bash-completion@2
   git
   gnupg
   grip
@@ -98,7 +98,7 @@ gems=(
 __install "gem list --no-versions" "gem install" "gem update" "${gems[@]}"
 
 #Other bash completions
-COMPLETION_DIR=/usr/local/etc/bash_completion.d
+COMPLETION_DIR=~/.local/share/bash-completion/completions/
 mkdir -p $COMPLETION_DIR
 #Maven
 wget https://raw.github.com/dimaj/maven-bash-completion/master/bash_completion.bash \
