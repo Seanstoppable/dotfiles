@@ -12,8 +12,8 @@ alias vi='vim'
 
 #git
 alias gitree='git log --graph --pretty=oneline --abbrev-commit'
-alias gitreset='git reset --hard origin/`git branch --contains | grep \* | sed "s/\* //g"`'
-alias gitpush='git push --force-with-lease origin `git branch --contains | grep \* | sed "s/\* //g"`'
+alias gitreset='git resethead'
+alias gitpush='git force-push'
 
 jsonview () { 
   curl "$@" | python -m json.tool | less

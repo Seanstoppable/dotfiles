@@ -6,4 +6,4 @@ if git config remote.me.url > /dev/null; then
   REMOTE=me
 fi
 
-git reset --hard "$REMOTE/$(git branch --contains | grep \* | sed "s/\* //g")"
+git push --force-with-lease "$REMOTE" `git branch --contains | grep \* | sed "s/\* //g"`
