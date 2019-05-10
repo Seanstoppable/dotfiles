@@ -70,6 +70,7 @@ cask_apps=(
   blockblock
   cyberduck
 #  dnscrypt
+  docker
   flux
   gimp
   iterm2
