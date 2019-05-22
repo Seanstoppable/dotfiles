@@ -165,7 +165,7 @@ function current_git_branch_with_markers {
     dirty=$(parse_git_dirty "$git_status")
     rebasing=$(parse_git_rebasing "$git_status")
     cherry_picking=$(parse_cherry_picking "$git_status")
-    echo "$project/$current/$tag" | sed -e "s/\(.*\)/\[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
+    echo "$project|$current|$tag" | sed -e "s/\(.*\)/\[\1$ahead$behind$diverge$dirty$rebasing$cherry_picking$stash\]/"
 
   fi
 }
