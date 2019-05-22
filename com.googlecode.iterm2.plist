@@ -29,7 +29,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>/Applications</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -73,10 +73,18 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1169 113 445 103 0 0 1680 1027 </string>
+	<key>NSWindow Frame ProfilesPanel</key>
+	<string>439 436 735 382 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 152 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>211 246 796 486 0 0 1440 877 </string>
+	<string>439 194 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 59 570 475 0 0 1440 877 </string>
+	<string>41 266 1186 611 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>91 552 570 475 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -232,12 +240,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<string>0</string>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<string>0</string>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<string>0</string>
+				<real>0.0</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -254,6 +266,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string>PROBABLY REMOTE\n\(session.username)\n\(session.hostname)</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -311,7 +325,7 @@
 				<string>0</string>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -326,12 +340,16 @@
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<string>1</string>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<string>1</string>
+				<real>0.0</real>
 				<key>Red Component</key>
-				<string>1</string>
+				<real>1</real>
 			</dict>
 			<key>Guid</key>
 			<string>AAA2D8FB-186A-4DE1-BBD8-FE23E33F497D</string>
@@ -645,13 +663,13 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>Default</string>
+			<string>REMOTE</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>Monaco 14</string>
 			<key>Open Toolbelt</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -792,7 +810,9 @@
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
-			<array/>
+			<array>
+				<string>remote</string>
+			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
@@ -807,7 +827,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>^(\w+)@([\w.-]+)</string>
+					<string>^([\w-]+)@([\w.-]+)</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -1016,6 +1036,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string>REMOTE</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -1034,6 +1056,7 @@
 			<key>Bound Hosts</key>
 			<array>
 				<string>*</string>
+				<string>postgres</string>
 			</array>
 			<key>Character Encoding</key>
 			<integer>4</integer>
@@ -1577,7 +1600,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>^(\w+)@([\w.-]+)</string>
+					<string>^([\w-]+)@([\w.-]+)</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -1775,7 +1798,7 @@
 				<real>1</real>
 			</dict>
 			<key>Badge Text</key>
-			<string></string>
+			<string>Home</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -2333,7 +2356,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>^(\w+)@([\w.-]+)</string>
+					<string>^([\w-]+)@([\w.-]+)</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -2508,12 +2531,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<string>0</string>
+				<real>0.1402587890625</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<string>0</string>
+				<real>0.1402587890625</real>
 				<key>Red Component</key>
-				<string>0</string>
+				<real>0.0016586389392614365</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -2530,6 +2557,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Badge Text</key>
+			<string>You can do it</string>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -2548,6 +2577,7 @@
 			<key>Bound Hosts</key>
 			<array>
 				<string>ssmith@Epsilon</string>
+				<string>127.0.0.1</string>
 			</array>
 			<key>Character Encoding</key>
 			<integer>4</integer>
@@ -3089,7 +3119,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>^(\w+)@([\w.-]+)</string>
+					<string>^([\w-]+)@([\w.-]+)</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -3117,9 +3147,39 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>C8E1A39A-8629-4EC7-88FA-530FF66B3CCC</string>
+	<string>402AD5B7-3AA9-4485-8BFC-A5E23358A5F1</string>
+	<key>NoSyncLastTipTime</key>
+	<real>580223692.70683599</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>577843278.67216206</real>
+	<real>577747712.09472001</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0007</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+	</array>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -3160,7 +3220,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/.dotfiles</string>
+	<string>~/.dotfiles/</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -3170,11 +3230,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=47</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=67</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-25T00:03:48Z</date>
+	<date>2019-05-21T13:24:22Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
