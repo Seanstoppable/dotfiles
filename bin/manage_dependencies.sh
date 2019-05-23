@@ -104,8 +104,8 @@ __install "gem list --no-versions" "gem install" "gem update" "${gems[@]}"
 COMPLETION_DIR=~/.local/share/bash-completion/completions/
 mkdir -p $COMPLETION_DIR
 #Maven
-wget https://raw.github.com/dimaj/maven-bash-completion/master/bash_completion.bash \
+wget -q https://raw.github.com/dimaj/maven-bash-completion/master/bash_completion.bash \
   --output-document $COMPLETION_DIR/mvn
 #docker-compose
-wget https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose \
+wget -q https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose \
   --output-document $COMPLETION_DIR/docker-compose
