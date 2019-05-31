@@ -34,57 +34,7 @@ asdf plugin-add python https://github.com/tuvistavie/asdf-python.git 2> /dev/nul
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git 2> /dev/null
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2> /dev/null
 
-brew tap Seanstoppable/random 2> /dev/null
-brew tap caskroom/cask 2> /dev/null
-brew tap caskroom/versions 2> /dev/null
-brew tap universal-ctags/universal-ctags 2> /dev/null
-
-#head only formula
-brew install --HEAD universal-ctags 2> /dev/null
-
-brew_apps=(
-  awscli
-  aws-shell
-  bash-completion@2
-  git
-  gnupg
-  grip
-  hadolint
-  htop
-  lz4
-  peco
-  pwgen
-  shellcheck
-  the_silver_searcher
-  tig
-  vim
-  watch
-  wget
-  yank
-)
-
-__install "brew list" "brew install" "brew upgrade" "${brew_apps[@]}"
-
-cask_apps=(
-#  bitbar
-  blockblock
-  cyberduck
-#  dnscrypt
-  docker
-  flux
-  gimp
-  iterm2
-  keepassxc
-  keka
-#  oversight
-  postman
-#  qbittorrent
-#  veracrypt
-  vlc
-  yed
-)
-
-__install "brew cask list" "brew cask install" "brew cask upgrade" "${cask_apps[@]}"
+brew bundle --file=~/.dotfiles/Brewfile
 
 pip_packages=(
   ansible-lint
