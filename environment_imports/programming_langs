@@ -7,6 +7,8 @@ fi
 #Ruby
 export ARCHFLAGS="-arch x86_64"
 
+#Ruby END
+
 #Golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -14,20 +16,18 @@ alias gocover="echo 'mode: atomic' > coverage.txt && go list ./... | xargs -n1 -
 
 #Golang END
 
-#Java
-export ANT_OPTS="-Xmx4048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=4024m -XX:+HeapDumpOnOutOfMemoryError"
 export GRADLE_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
 export JAVA_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
 export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=256m"
 export SBT_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
 export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -DtrimStackTrace=false"
 
+#Java
+
 #no java plugin for asdf
 if which jenv > /dev/null; 
   then eval "$(jenv init -)"; 
 fi
-
-#java
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
@@ -40,3 +40,8 @@ export CMAKE_BUILD_PARALLEL_LEVEL=$(sysctl -n hw.ncpu)
 
 #C++ END
 
+#Python
+#Python3 aliases
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+#Python END
