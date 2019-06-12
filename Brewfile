@@ -24,6 +24,7 @@ brew "watch"
 brew "wget"
 brew "yank"
 
+cask "alfred"
 #cask "bitbar"
 cask "blockblock"
 cask "cyberduck"
