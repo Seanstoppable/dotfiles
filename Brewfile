@@ -23,6 +23,7 @@ brew "vim"
 brew "watch"
 brew "wget"
 brew "yank"
+brew "zsh"
 
 cask "alfred"
 #cask "bitbar"
