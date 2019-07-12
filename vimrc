@@ -20,6 +20,8 @@ Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Languages
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -308,6 +310,11 @@ augroup END
 
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
+
+" Use ag in fzf for listing files. Lightning fast and respects .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
+" Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <c-p> :Files<cr>
 
 "default textwidth and then specific overrides
 set textwidth=100
