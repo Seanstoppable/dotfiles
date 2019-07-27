@@ -3,6 +3,9 @@ if filereadable(expand("~/.dotfiles/vimrc.bundles"))
   source ~/.dotfiles/vimrc.bundles
 endif
 
+set modelines=0   " Disable modelines as a security precaution
+set nomodeline
+
 """"""""""""""""""""""""""""""""""
 " Syntax and indent
 """"""""""""""""""""""""""""""""""
