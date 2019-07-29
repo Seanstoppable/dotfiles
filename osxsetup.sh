@@ -39,6 +39,13 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Disable autocorrect
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
+# Disable smart quotes and dashes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+# Also for textedit
+defaults write com.apple.TextEdit SmartQuotes -bool false
+defaults write com.apple.TextEdit SmartDashes -bool false
+
 # Disable automatic keyboard backlight
 defaults write com.apple.BezelServices kDim -bool false
 
