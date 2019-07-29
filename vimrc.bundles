@@ -11,7 +11,7 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 "Other
 Plug 'editorconfig/editorconfig-vim'
 Plug '907th/vim-auto-save'
