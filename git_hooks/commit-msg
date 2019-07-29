@@ -1,0 +1,24 @@
+#!/bin/bash
+# gitmultihook
+#
+# symlink this script as any githook executable, and create a folder
+# with the symlink's name plus '.d' containing the actual hooks scripts
+# to run.  The scripts in each folder will be run in alphabetical order,
+# with failures failing the overall script (except for post-* hooks,
+# where all scripts will run regardless of failures).
+
+RUN_DIR="`dirname $0`/`basename $0`.d"
+
+if [ -d "$RUN_DIR" ] ; then
+	for A in `ls $RUN_DIR` ; do
+		if [ -x "${RUN_DIR}/$A" ] ; then
+			${RUN_DIR}/$A $*
+			EXIT_CODE=$?
+			if [[ ! (`basename $0` =~ 'post-') ]]; then
+				if [ $EXIT_CODE != 0 ] ; then
+					exit $EXIT_CODE
+				fi
+			fi
+		fi
+	done
+fi
