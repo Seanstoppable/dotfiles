@@ -13,6 +13,7 @@ puts(){
 
 files=(
   bash_profile
+  hammerspoon
   irbrc 
   psqlrc
   vim
