@@ -4,7 +4,7 @@ startdiff="$1"
 
 if [ -z "$1" ]
 then
-  startdiff=`git describe --abbrev=0`
+  startdiff=$(git describe --abbrev=0)
 fi
 
 git log --no-merges --pretty="%s - %an" "$startdiff"..HEAD

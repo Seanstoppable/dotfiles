@@ -8,4 +8,3 @@ git fetch -p origin
 
 #do gc
 git gc
-
