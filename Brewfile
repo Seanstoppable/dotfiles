@@ -7,7 +7,6 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 
 brew "awscli"
 brew "aws-shell"
-brew "bash-completion@2"
 brew "git"
 brew "gnupg"
 brew "grip"
@@ -25,6 +24,7 @@ brew "watch"
 brew "wget"
 brew "yank"
 brew "zsh"
+brew "zsh-completions"
 
 cask "alfred"
 #cask "bitbar"
