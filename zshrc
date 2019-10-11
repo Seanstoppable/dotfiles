@@ -1,5 +1,13 @@
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 
+#Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -Uz compinit && compinit
+
 set bell-style visible
 
 if [ -d ~/.dotfiles/environment_imports ] ; then
@@ -15,13 +23,6 @@ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 #add anything I have in dotfiles
 PATH="$HOME/.dotfiles/bin:$PATH"
 
-#Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
-
-autoload -Uz compinit && compinit
 
 #prioritive asdf
 PATH="/Users/ssmith/.asdf/shims:$PATH"
