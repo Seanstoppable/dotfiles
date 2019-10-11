@@ -1,0 +1,3 @@
+brew "ffmpeg"
+brew "nmap"
+brew "youtube-dl"

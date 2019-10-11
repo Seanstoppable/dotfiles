@@ -35,6 +35,7 @@ asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git 2> /dev/null
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git 2> /dev/null
 
 brew bundle --file=~/.dotfiles/Brewfile
+brew bundle --file=~/.dotfiles/Brewfile.$(hostname)
 
 pip_packages=(
   ansible-lint
