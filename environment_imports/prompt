@@ -171,12 +171,7 @@ function current_git_branch_with_markers {
 }
 
 function set_prompt {
-  local  GREEN='\[\e[0;32m\]'
-  local    RED='\[\e[0;31m\]'
-  local   CYAN='\[\e[1;36m\]'
-  local NORMAL='\[\e[0m\]'
-
-  PS1="\n\u@\h:\W $CYAN\$(service_markers)$GREEN\$(current_git_branch_with_markers) $NORMAL\$ "
+  PS1="%n@%m:~ %F{cyan}\$(service_markers)%F{green}\$(current_git_branch_with_markers) %F{normal}\$ "
 }
-
+setopt prompt_subst
 set_prompt

@@ -12,13 +12,13 @@ puts(){
 }
 
 files=(
-  bash_profile
   hammerspoon
   irbrc 
   psqlrc
   vim
   vimrc
   ctags
+  zshrc
 )
 
 for filename in ${files[*]}; do

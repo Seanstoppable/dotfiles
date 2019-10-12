@@ -1,9 +1,8 @@
-export HISTSIZE="UNLIMITED"
-export HISTFILESIZE="UNLIMITED"
-export HISTCONTROL=ignoredups:erasedups:ignorespace
-export HISTIGNORE='&:bg:fg:clear:ls:pwd:history:exit:'
-export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S "
+export HISTSIZE=999999999999999999
+export SAVEHIST=$HISTSIZE
+export HISTORY_IGNORE='(&|bg|fg|clear|ls|pwd|history|exit|cd ..)'
 
-shopt -s histappend
-
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS

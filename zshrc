@@ -1,5 +1,13 @@
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 
+#Completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -Uz compinit && compinit
+
 set bell-style visible
 
 if [ -d ~/.dotfiles/environment_imports ] ; then
@@ -14,6 +22,7 @@ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
 #add anything I have in dotfiles
 PATH="$HOME/.dotfiles/bin:$PATH"
+
 
 #prioritive asdf
 PATH="/Users/ssmith/.asdf/shims:$PATH"
@@ -42,9 +51,9 @@ if [ -f ~/.bashhub/bashhub.sh ]; then
 fi
 
 ### source any local bash
-if [ -f ~/.bashrc.local ] ; then
+if [ -f ~/.zshrc.local ] ; then
   # shellcheck source=/dev/null
-  source ~/.bashrc.local
+  source ~/.zshrc.local
 fi
 
 #include any local aliases
@@ -53,4 +62,4 @@ if [ -f ~/.aliases.local ] ; then
   source ~/.aliases.local
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
