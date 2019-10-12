@@ -7,11 +7,13 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 
 brew "awscli"
 brew "aws-shell"
+brew "fzf"
 brew "git"
 brew "gnupg"
 brew "grip"
 brew "hadolint"
 brew "htop"
+brew "jq"
 brew "lz4"
 brew "peco"
 brew "pwgen"
