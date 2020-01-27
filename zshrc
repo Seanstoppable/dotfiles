@@ -8,6 +8,9 @@ fi
 
 autoload -Uz compinit && compinit
 
+# Don't blow up if we think we have a glob and can't match
+setopt +o nomatch
+
 set bell-style visible
 
 if [ -d ~/.dotfiles/environment_imports ] ; then
