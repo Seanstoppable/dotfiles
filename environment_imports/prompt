@@ -139,7 +139,7 @@ function current_git_branch() {
 }
 
 function service_markers {
-  docker=$(is_docker_running)
+  docker='' #$(is_docker_running)
   mongo=$(is_mongo_running)
   postgres=$(is_postgres_running)
   zookeeper=$(is_zookeeper_running)
@@ -149,6 +149,10 @@ function service_markers {
   if [ -n "$values" ]; then
     echo "[$values]"
   fi
+}
+
+function working_dir {
+  basename "`pwd`"
 }
 
 function current_git_branch_with_markers {
@@ -171,7 +175,7 @@ function current_git_branch_with_markers {
 }
 
 function set_prompt {
-  PS1="%n@%m:~ %F{cyan}\$(service_markers)%F{green}\$(current_git_branch_with_markers) %F{normal}\$ "
+  PS1="%n@%m:~ %F{yellow}\$(working_dir) %F{cyan}\$(service_markers)%F{green}\$(current_git_branch_with_markers) %F{normal}\$ "
 }
 setopt prompt_subst
 set_prompt
