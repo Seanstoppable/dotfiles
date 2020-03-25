@@ -1,6 +1,6 @@
 export HISTSIZE=999999999999999999
 export SAVEHIST=$HISTSIZE
-export HISTORY_IGNORE='(&|bg|fg|clear|ls|pwd|history|exit|cd ..)'
+export HISTORY_IGNORE='(&|bg|fg|clear|ls|pwd|history|exit|cd ..|youtube-dl *)'
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
