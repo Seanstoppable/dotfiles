@@ -13,28 +13,33 @@ setopt +o nomatch
 
 set bell-style visible
 
+#Setup path
+PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
+
+#add anything I have in dotfiles
+PATH="$HOME/.dotfiles/bin:$PATH"
+
+#prioritive asdf
+PATH="/Users/ssmith/.asdf/shims:$PATH"
+
+
+# put ~/bin first on PATH
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+### source any local 
+if [ -f ~/.zshrc.local ] ; then
+  # shellcheck source=/dev/null
+  source ~/.zshrc.local
+fi
+
 if [ -d ~/.dotfiles/environment_imports ] ; then
   for file in ~/.dotfiles/environment_imports/* ; do
     [[ -e $file ]] || break
     # shellcheck source=/dev/null
     source "$file"
   done
-fi
-
-PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
-
-#add anything I have in dotfiles
-PATH="$HOME/.dotfiles/bin:$PATH"
-
-
-#prioritive asdf
-PATH="/Users/ssmith/.asdf/shims:$PATH"
-
-export EDITOR=vim
-
-# put ~/bin first on PATH
-if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
 fi
 
 case $TERM in
@@ -51,12 +56,6 @@ esac
 if [ -f ~/.bashhub/bashhub.sh ]; then
   # shellcheck source=/dev/null
   source ~/.bashhub/bashhub.sh
-fi
-
-### source any local bash
-if [ -f ~/.zshrc.local ] ; then
-  # shellcheck source=/dev/null
-  source ~/.zshrc.local
 fi
 
 #include any local aliases
