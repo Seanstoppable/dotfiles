@@ -24,7 +24,7 @@ __install() {
 }
 
 #install brew if not installed
-command -v brew >/dev/null 2>&1 || { ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" ; }
+command -v brew >/dev/null 2>&1 || { /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" ; }
 
 #install asdf and plugin if not installed
 command -v asdf >/dev/null 2>&1 || { git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.3 ; }
