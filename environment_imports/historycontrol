@@ -1,3 +1,4 @@
+export HISTFILE=~/.zhistory
 export HISTSIZE=999999999999999999
 export SAVEHIST=$HISTSIZE
 export HISTORY_IGNORE='(&|bg|fg|clear|ls|pwd|history|exit|cd ..|youtube-dl *)'
