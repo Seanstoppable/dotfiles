@@ -1,0 +1,40 @@
+#!/bin/sh
+# Checks for url specific config for youtube-dl
+
+url=$1
+
+f=$url
+ 
+## Remove protocol part of url  ##
+f="${f#http://}"
+f="${f#https://}"
+f="${f#ftp://}"
+f="${f#scp://}"
+f="${f#scp://}"
+f="${f#sftp://}"
+ 
+## Remove username and/or username:password part of URL  ##
+f="${f#*:*@}"
+f="${f#*@}"
+ 
+## Remove rest of urls ##
+f=${f%%/*}
+ 
+## Show domain name only ##
+
+custom=false
+
+for file in ~/.config/youtube-dl/*
+do
+  base=`basename $file`
+  if [[ "$f" == *"$base" ]]
+  then
+    custom=true
+    youtube-dl --config-location "$file" "$url"
+  fi
+done
+
+if [[ !$custom ]]
+then
+  youtube-dl "$url"
+fi
