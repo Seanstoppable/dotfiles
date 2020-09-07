@@ -53,13 +53,13 @@ fi
 mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
 
 if [ ! -d "$XDG_CONFIG_HOME/nvim" ]; then
-  ln -s "$DOTFILES_HOME/vim $XDG_CONFIG_HOME/nvim"
+  ln -s "$DOTFILES_HOME/vim" "$XDG_CONFIG_HOME/nvim"
 else
   puts "$XDG_CONFIG_HOME/nvim already exists, skipping"
 fi
 
 if [ ! -f "$XDG_CONFIG_HOME/nvim/init.vim" ]; then
-  ln -s "$DOTFILES_HOME/vimrc $XDG_CONFIG_HOME/nvim/init.vim"
+  ln -s "$DOTFILES_HOME/vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"
 else
   puts "$XDG_CONFIG_HOME/nvim/init.vim already exists, skipping"
 fi
