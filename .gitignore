@@ -16,3 +16,4 @@ vim/plugged
 vim/undodir/*
 #vim/vim ends up being a circular dependency
 vim/vim
+Brewfile.*.lock.json
