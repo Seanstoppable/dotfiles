@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+$EDITOR `git show --pretty="format:" --name-only -r $1`

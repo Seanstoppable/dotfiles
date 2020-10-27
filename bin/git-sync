@@ -6,6 +6,7 @@ if [ -z "$1" ] ; then
 fi
 
 stash=$(git stash save)
+git fetch --all
 git rebase "origin/$1"
 if [ "$stash" != "No local changes to save" ]; then
   git stash pop
