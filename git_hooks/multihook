@@ -9,10 +9,26 @@
 
 RUN_DIR="`dirname $0`/`basename $0`.d"
 
+LOCAL_DIR="$HOME/git_hooks/`basename $0`.d"
+
 if [ -d "$RUN_DIR" ] ; then
 	for A in `ls $RUN_DIR` ; do
 		if [ -x "${RUN_DIR}/$A" ] ; then
 			${RUN_DIR}/$A $*
+			EXIT_CODE=$?
+			if [[ ! (`basename $0` =~ 'post-') ]]; then
+				if [ $EXIT_CODE != 0 ] ; then
+					exit $EXIT_CODE
+				fi
+			fi
+		fi
+	done
+fi
+
+if [ -d "$LOCAL_DIR" ] ; then
+	for A in `ls $LOCAL_DIR` ; do
+		if [ -x "${LOCAL_DIR}/$A" ] ; then
+			${LOCAL_DIR}/$A $*
 			EXIT_CODE=$?
 			if [[ ! (`basename $0` =~ 'post-') ]]; then
 				if [ $EXIT_CODE != 0 ] ; then
