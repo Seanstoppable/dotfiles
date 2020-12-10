@@ -38,6 +38,7 @@
   editlast = "!vim `git diff-tree --no-commit-id --name-only -r HEAD`"
   editcommit ="!vim `git show --pretty="format:" --name-only -r $1`"
   f = "fetch --all"
+  find = "!f() { git branch | fzf --query=$1 | xargs git checkout ; }; f"
   hist = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
   ignore = "update-index --assume-unchanged"
   unignore = "!git update-index --no-assume-unchanged $1; git reset HEAD $1;  git checkout $1"
