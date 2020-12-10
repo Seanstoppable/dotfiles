@@ -8,3 +8,9 @@ then
   echo "Must have lowercase branch name"
  exit 1 
 fi
+
+if [[ ${a} == "master" ]]
+then
+  echo "You can't commit to master!"
+  exit 1
+fi
