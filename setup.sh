@@ -12,12 +12,13 @@ puts(){
 }
 
 files=(
+  ctags
+  editrc
   hammerspoon
   irbrc 
   psqlrc
   vim
   vimrc
-  ctags
   zshrc
 )
 
