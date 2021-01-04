@@ -13,6 +13,8 @@ setopt +o nomatch
 
 set bell-style visible
 
+export EDITOR=vim
+
 #Setup path
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
