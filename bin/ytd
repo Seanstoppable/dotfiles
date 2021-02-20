@@ -30,7 +30,7 @@ do
   if [[ "$f" == *"$base" ]]
   then
     custom=true
-    youtube-dl --config-location "$file" "$url"
+    youtube-dl --config-location "$file" "$url" "${@:2}"
   fi
 done
 
