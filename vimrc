@@ -271,7 +271,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden
 nnoremap <c-f> :Files<cr>
 
 "default textwidth and then specific overrides
-set textwidth=100
+set textwidth=120
 augroup indenting
   autocmd!
   autocmd BufRead,BufNewFile *.jade,*.pub,Dockerfile set textwidth=0
