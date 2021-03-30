@@ -46,7 +46,6 @@ Plug 'lervag/vimtex'
 "General test framework
 Plug 'janko-m/vim-test'
 "Testing markdown previews
-Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'kannokanno/previm'
 Plug 'reedes/vim-wordy'
 

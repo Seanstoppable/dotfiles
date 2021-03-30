@@ -185,8 +185,8 @@ if has('nvim')
   nnoremap <leader>o :below 10sp term://$SHELL<cr>i
 endif
 
-let g:vim_markdown_preview_browser='Google Chrome'
-let g:vim_markdown_preview_github=1
+let g:previm_open_cmd='open'
+nnoremap <c-p> :PrevimOpen<cr>
 
 nnoremap <leader>t :TagbarToggle<CR>
 "paste current date in yyyy-mm-dd format
@@ -268,7 +268,7 @@ nnoremap [r :ALEPreviousWrap<CR>
 " Use ag in fzf for listing files. Lightning fast and respects .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
 " Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <c-p> :Files<cr>
+nnoremap <c-f> :Files<cr>
 
 "default textwidth and then specific overrides
 set textwidth=100
