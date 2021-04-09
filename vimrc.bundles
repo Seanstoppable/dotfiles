@@ -15,6 +15,7 @@ Plug 'dense-analysis/ale'
 "Other
 Plug 'editorconfig/editorconfig-vim'
 Plug '907th/vim-auto-save'
+Plug 'mattboehm/vim-accordion'
 
 "Meaning to use more
 Plug 'mileszs/ack.vim'
