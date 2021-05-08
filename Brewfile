@@ -1,9 +1,6 @@
 tap "Seanstoppable/random"
 tap "caskroom/cask"
 tap "caskroom/versions"
-tap "universal-ctags/universal-ctags"
-
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 
 brew "awscli"
 brew "aws-shell"
@@ -23,6 +20,7 @@ brew "ripgrep-all"
 brew "shellcheck"
 brew "the_silver_searcher"
 brew "tig"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vim"
 brew "watch"
 brew "wget"
