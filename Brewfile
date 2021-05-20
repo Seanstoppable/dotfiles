@@ -4,7 +4,7 @@ tap "caskroom/versions"
 
 brew "awscli"
 brew "aws-shell"
-brew "ctop
+brew "ctop"
 brew "fzf"
 brew "git"
 brew "gnupg"
