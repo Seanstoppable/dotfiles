@@ -22,6 +22,7 @@ brew "shellcheck"
 brew "the_silver_searcher"
 brew "tig"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "up"
 brew "vim"
 brew "watch"
 brew "wget"
