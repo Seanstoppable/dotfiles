@@ -18,20 +18,6 @@ export EDITOR=vim
 #Setup path
 PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 
-#add anything I have in dotfiles
-PATH="$HOME/.dotfiles/bin:$PATH"
-
-#prioritive asdf
-PATH="/Users/ssmith/.asdf/shims:$PATH"
-
-
-# put ~/bin first on PATH
-if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
-fi
-
-### source any local 
-if [ -f ~/.zshrc.local ] ; then
   # shellcheck source=/dev/null
   source ~/.zshrc.local
 fi
@@ -67,3 +53,25 @@ if [ -f ~/.aliases.local ] ; then
 fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+## Modify path AFTER local settings
+
+#add anything I have in dotfiles
+PATH="$HOME/.dotfiles/bin:$PATH"
+
+#prioritive asdf
+if type asdf &>/dev/null; then
+  PATH="/Users/ssmith/.asdf/shims:$PATH"
+fi
+
+if type pyenv &>/dev/null; then
+  PATH="$(pyenv root)/shims:$PATH"
+fi
+
+# put ~/bin first on PATH
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+### source any local 
+if [ -f ~/.zshrc.local ] ; then

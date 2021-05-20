@@ -1,7 +1,10 @@
+
 # shellcheck disable=SC1090
 if [ -d "$HOME/.asdf" ]; then
   . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
+  if [ "$SHELL" = '/bin/bash' ]; then
+    . "$HOME/.asdf/completions/asdf.bash"
+  fi
 fi
 
 #Ruby
@@ -16,10 +19,10 @@ alias gocover="echo 'mode: atomic' > coverage.txt && go list ./... | xargs -n1 -
 
 #Golang END
 
-export GRADLE_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
-export JAVA_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m -XX:-UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
-export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=256m"
-export SBT_OPTS="-Xmx2048m -Xms512m -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512m"
+export GRADLE_OPTS="-Xmx2048m -Xms512m"
+export JAVA_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=512m"
+export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=256m"
+export SBT_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=512m"
 export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -DtrimStackTrace=false"
 
 #Java
