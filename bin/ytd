@@ -30,11 +30,11 @@ do
   if [[ "$f" == *"$base" ]]
   then
     custom=true
-    youtube-dl --config-location "$file" "$url" "${@:2}"
+    yt-dlp --config-location "$file" "$url" "${@:2}"
   fi
 done
 
 if ! $custom
 then
-  youtube-dl "$url"
+  yt-dlp --config-location "~/.config/youtube-dl/config" "$url"
 fi
