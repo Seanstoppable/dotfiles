@@ -2,6 +2,8 @@ export HISTFILE=~/.zhistory
 export HISTSIZE=999999999999999999
 export SAVEHIST=$HISTSIZE
 export HISTORY_IGNORE='(&|bg|fg|clear|ls|pwd|history|exit|cd ..|youtube-dl *|ytd *|df|df *|vi ~/.zhistory|git add *|git commend)'
+export ZSH_AUTOSUGGEST_HISTORY_IGNORE=$HISTORY_IGNORE
+export ZSH_AUTOSUGGEST_COMPLETION_IGNORE=$HISTORY_IGNORE
 
 setopt INC_APPEND_HISTORY
 setopt sharehistory
