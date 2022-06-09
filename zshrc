@@ -69,6 +69,10 @@ if type asdf &>/dev/null; then
   PATH="/Users/ssmith/.asdf/shims:$PATH"
 fi
 
+if type rbenv &>/dev/null; then
+  PATH="$(rbenv root)/shims:$PATH"
+fi
+
 if type pyenv &>/dev/null; then
   PATH="$(pyenv root)/shims:$PATH"
 fi
