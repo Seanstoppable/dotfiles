@@ -40,3 +40,5 @@ rga-fzf() {
 	echo "opening $file" &&
 	open "$file"
 }
+
+alias dockerclean='docker rmi `docker images | grep "<none>" | cut -c 63-75`'
