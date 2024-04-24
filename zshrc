@@ -31,15 +31,14 @@ if [ -d ~/.dotfiles/environment_imports ] ; then
   done
 fi
 
-case $TERM in
-  xterm*|rxvt|Eterm|eterm)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-    ;;
-  screen)
-    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-    ;;
-esac
+set_jenv_version() {
+  if [[ -f gradle.properties ]]; then
+    export JENV_VERSION=$(grep JAVA_VERSION gradle.properties | tr "=" " " | awk '{print $2}' | tr -d "'")
+  fi
+}
 
+autoload -U add-zsh-hook
+add-zsh-hook precmd set_jenv_version
 
 ### Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.sh ]; then

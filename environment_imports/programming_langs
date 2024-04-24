@@ -22,20 +22,25 @@ alias gocover="echo 'mode: atomic' > coverage.txt && go list ./... | xargs -n1 -
 #Golang END
 
 export GRADLE_OPTS="-Xmx2048m -Xms512m"
-export JAVA_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=512m"
-export MAVEN_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=256m"
-export SBT_OPTS="-Xmx2048m -Xms512m -XX:PermSize=256M -XX:MaxPermSize=512m"
+export JAVA_OPTS="-Xmx2048m -Xms512m"
+export MAVEN_OPTS="-Xmx2048m -Xms512m"
+export SBT_OPTS="-Xmx2048m -Xms512m"
 export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -DtrimStackTrace=false"
 
 #Java
 
 #no java plugin for asdf
 if which jenv > /dev/null; 
+  export PATH="$HOME/.jenv/bin:$PATH"
   then eval "$(jenv init -)"; 
+  jenv enable-plugin gradle
 fi
+alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v 17)'
+alias java11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
+
 
 #Java END
 
