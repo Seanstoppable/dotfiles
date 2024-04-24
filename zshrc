@@ -10,6 +10,7 @@ autoload -Uz compinit && compinit
 
 # Don't blow up if we think we have a glob and can't match
 setopt +o nomatch
+setopt autocd
 
 set bell-style visible
 
@@ -74,6 +75,10 @@ fi
 
 if type pyenv &>/dev/null; then
   PATH="$(pyenv root)/shims:$PATH"
+fi
+
+if type direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
 fi
 
 # put ~/bin first on PATH
