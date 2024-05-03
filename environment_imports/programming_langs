@@ -35,6 +35,16 @@ if which jenv > /dev/null;
   then eval "$(jenv init -)"; 
   jenv enable-plugin gradle
 fi
+
+set_jenv_version() {
+  if [[ -f gradle.properties ]]; then
+    export JENV_VERSION=$(grep ^JAVA_VERSION gradle.properties | tr "=" " " | awk '{print $2}' | tr -d "'")
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd set_jenv_version
+
 alias java17='export JAVA_HOME=$(/usr/libexec/java_home -v 17)'
 alias java11='export JAVA_HOME=$(/usr/libexec/java_home -v 11)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'

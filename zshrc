@@ -32,14 +32,6 @@ if [ -d ~/.dotfiles/environment_imports ] ; then
   done
 fi
 
-set_jenv_version() {
-  if [[ -f gradle.properties ]]; then
-    export JENV_VERSION=$(grep JAVA_VERSION gradle.properties | tr "=" " " | awk '{print $2}' | tr -d "'")
-  fi
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd set_jenv_version
 
 ### Bashhub.com Installation
 if [ -f ~/.bashhub/bashhub.sh ]; then
